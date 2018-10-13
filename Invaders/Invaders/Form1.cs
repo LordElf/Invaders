@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Invaders;
 
@@ -31,17 +32,10 @@ namespace Invaders
             gameTimer.Start();
         }
 
-        /// <summary>
-        /// 绘制画面每帧画面，由计时器调用
-        /// </summary>
-        private void paint()
-        {
-
-        }
 
         private void animationTimer_Tick(object sender, EventArgs e)
         {
-
+            game.stars.twinkle();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -52,6 +46,11 @@ namespace Invaders
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void Form_Paint(object sender, PaintEventArgs e)
+        {
+            game.draw(e.Graphics);
         }
     }
 }

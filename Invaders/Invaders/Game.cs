@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+
 namespace Invaders
 {
     /// <summary>
@@ -11,13 +13,16 @@ namespace Invaders
         /// </summary>
         public static Game instance { get; } = new Game();
 
-        Stars stars;
+        public Stars stars = new Stars();
 
         private Game()
         {
 
         }
 
-
+        public void draw(Graphics graphics)
+        {
+            stars.draw(graphics);
+        }
     } 
 }

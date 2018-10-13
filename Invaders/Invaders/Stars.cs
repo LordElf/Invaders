@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Invaders
@@ -26,7 +27,7 @@ namespace Invaders
             /// 重新设定Star的位置
             /// </summary>
             /// <param name="random"></param>
-            public void changePositiom(Random random)
+            public void changePosition(Random random)
             {
                 point.X = random.Next(0, Options.width);
                 point.Y = random.Next(0, Options.height);
@@ -38,7 +39,45 @@ namespace Invaders
             }
         }
 
+        Random random = new Random();
         private int amount = 300; //星星的数量
-        private int changeInAmount = 5; //每次闪烁变化的星星
+        private int changeInAmount = 250; //每次闪烁变化的星星
+
+        List<Star> stars = new List<Star>();
+
+        /// <summary>
+        /// Stars的构造函数
+        /// </summary>
+        public Stars()
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                stars.Add(new Star(random));
+            }
+        }
+
+        /// <summary>
+        /// 绘制星星
+        /// </summary>
+        /// <param name="graphics"></param>
+        public void draw(Graphics graphics)
+        {
+            foreach (Star s in stars)
+            {
+                s.draw(graphics);
+            }
+        }
+
+        /// <summary>
+        /// 删除一些星星并添加一些新的星星
+        /// </summary>
+        public void twinkle()
+        {
+            for (int i = 0; i < changeInAmount; i++)
+            {
+                stars[random.Next(0, amount)].changePosition(random);
+            }
+        }
+
     } 
 }

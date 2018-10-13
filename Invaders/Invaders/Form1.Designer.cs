@@ -45,7 +45,7 @@ namespace Invaders
             // 
             // animationTimer
             // 
-            this.animationTimer.Interval = 2000;
+            this.animationTimer.Interval = 33;
             this.animationTimer.Tick += new System.EventHandler(this.animationTimer_Tick);
             // 
             // gameTimer
@@ -58,12 +58,13 @@ namespace Invaders
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ClientSize = new System.Drawing.Size(Options.width, Options.height);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "Form";
             this.Text = "Invaders";
             this.Load += new System.EventHandler(this.Form_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.ResumeLayout(false);
 
