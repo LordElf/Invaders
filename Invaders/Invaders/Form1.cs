@@ -36,6 +36,7 @@ namespace Invaders
         private void animationTimer_Tick(object sender, EventArgs e)
         {
             game.stars.twinkle();
+            this.Refresh();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
