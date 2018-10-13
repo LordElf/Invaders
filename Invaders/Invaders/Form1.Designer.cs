@@ -1,4 +1,8 @@
 ﻿
+using System;
+using System.Drawing;
+using System.Threading;
+
 namespace Invaders
 {
     /// <summary>
@@ -41,9 +45,10 @@ namespace Invaders
             this.components = new System.ComponentModel.Container();
             this.animationTimer = new System.Windows.Forms.Timer(this.components);
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.title = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
+            this.startTip = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.welcomeTitle = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // animationTimer
@@ -56,48 +61,55 @@ namespace Invaders
             this.gameTimer.Interval = 10;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
-            // title
+            // startTip
             // 
-            this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.startTip.AutoSize = true;
+            this.startTip.BackColor = System.Drawing.Color.Transparent;
+            this.startTip.Font = new System.Drawing.Font("华文琥珀", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.startTip.ForeColor = System.Drawing.SystemColors.Info;
+            this.startTip.Location = new System.Drawing.Point(529, 542);
+            this.startTip.Name = "startTip";
+            this.startTip.Size = new System.Drawing.Size(221, 22);
+            this.startTip.TabIndex = 1;
+            this.startTip.Text = "Press anykey to start\r\n";
+            this.startTip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // welcomeTitle
+            // 
+            this.welcomeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.title.Image = global::Invaders.Properties.Resources.spaceInvaders;
-            this.title.InitialImage = null;
-            this.title.Location = new System.Drawing.Point(347, 66);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(600, 400);
-            this.title.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.title.TabIndex = 0;
-            this.title.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("华文琥珀", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(527, 540);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Press anykey to start\r\n";
+            this.welcomeTitle.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeTitle.Image = global::Invaders.Properties.Resources.welcomeTitle;
+            this.welcomeTitle.InitialImage = null;
+            this.welcomeTitle.Location = new System.Drawing.Point(340, 66);
+            this.welcomeTitle.Name = "welcomeTitle";
+            this.welcomeTitle.Size = new System.Drawing.Size(600, 400);
+            this.welcomeTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.welcomeTitle.TabIndex = 0;
+            this.welcomeTitle.TabStop = false;
             // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.title);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.startTip);
+            this.Controls.Add(this.welcomeTitle);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form";
             this.Text = "Invaders";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.title)).EndInit();
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,8 +119,9 @@ namespace Invaders
 
         private System.Windows.Forms.Timer animationTimer;
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.PictureBox title;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox welcomeTitle;
+        private System.Windows.Forms.Label startTip;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

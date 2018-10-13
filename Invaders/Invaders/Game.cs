@@ -6,6 +6,9 @@ namespace Invaders
     /// <summary>
     /// Game对象管理游戏的进行
     /// </summary>
+    /// <remarks>
+    /// 2018.11.13: 创建. by woan
+    /// </remarks>
     public class Game
     {
         /// <summary>

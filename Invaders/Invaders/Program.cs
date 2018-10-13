@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace Invaders
 {
+    /// <summary>
+    /// 应用程序主入口点
+    /// </summary>
+    /// <remarks>
+    /// 2018.10.12: 由VS自动创建  by woan
+    /// </remarks>
     static class Program
     {
         /// <summary>

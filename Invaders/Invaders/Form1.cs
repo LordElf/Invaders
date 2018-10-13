@@ -11,7 +11,8 @@ namespace Invaders
     /// 需调用Game对象的draw()方法
     /// </summary>
     /// <remarks>
-    /// 2018.10.13: 创建. by woan <br/>
+    /// 2018.10.13: 创建. by woan 
+    /// 2018.10.14: 加入欢迎界面.  by woan
     /// </remarks>
     public partial class Form : System.Windows.Forms.Form
     {
@@ -33,8 +34,60 @@ namespace Invaders
         }
 
 
+        bool isStartTipFadein = false;
         private void animationTimer_Tick(object sender, EventArgs e)
         {
+            //以下代码试图通过改变a值（透明度）实现startTip的渐变闪烁，但不生效
+
+            //if (startTip.Visible == true)
+            //{
+            //    if (startTip.ForeColor.A <= 0)
+            //    {
+            //        isStartTipFadein = true;
+            //    }
+            //    else if (startTip.ForeColor.A >= 255)
+            //    {
+            //        isStartTipFadein = false;
+            //    }
+
+            //    Color temp = startTip.ForeColor;
+
+            //    if (isStartTipFadein)
+            //    {
+            //        startTip.ForeColor = Color.FromArgb(startTip.ForeColor.A + 1, temp);
+
+            //    }
+            //    else
+            //    {
+            //        startTip.ForeColor = Color.FromArgb(startTip.ForeColor.A - 1, temp);
+            //    }   
+            //}
+            //以下是临时替代代码，通过改变RGB值实现，局限性较大，要求startTip前景RGB值全为255（纯白）
+
+            if (startTip.Visible == true)
+            {
+                if (startTip.ForeColor.R <= 45)
+                {
+                    isStartTipFadein = true;
+                }
+                else if (startTip.ForeColor.R >= 210)
+                {
+                    isStartTipFadein = false;
+                }
+                int i;
+                if (isStartTipFadein)
+                {
+                    i = 15;
+                }
+                else
+                {
+                    i = -15;
+                }
+                startTip.ForeColor = Color.FromArgb(startTip.ForeColor.R + i, startTip.ForeColor.R + i, startTip.ForeColor.R + i);      
+            }
+
+            //TODO:以上代码请尽早修改
+
             game.stars.twinkle();
             this.Refresh();
         }
@@ -52,6 +105,12 @@ namespace Invaders
         private void Form_Paint(object sender, PaintEventArgs e)
         {
             game.draw(e.Graphics);
+        }
+
+        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            welcomeTitle.Visible = false;
+            startTip.Visible = false;
         }
     }
 }

@@ -7,6 +7,8 @@ namespace Invaders
     /// <summary>
     /// Stars类存储背景的所有星星，并提供绘制方法
     /// </summary>
+    /// <remarks>
+    /// 2018.10.13: 创建并完全实现 by woan</remarks>
     public class Stars
     {
         private class Star
