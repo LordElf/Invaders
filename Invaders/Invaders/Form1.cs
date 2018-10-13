@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Invaders;
 
 namespace Invaders
 {
@@ -20,6 +14,12 @@ namespace Invaders
     /// </remarks>
     public partial class Form : System.Windows.Forms.Form
     {
+
+        private Game game = Game.instance;
+
+        /// <summary>
+        /// Form的构造函数
+        /// </summary>
         public Form()
         {
             InitializeComponent();
@@ -28,11 +28,20 @@ namespace Invaders
         private void Form_Load(object sender, EventArgs e)
         {
             animationTimer.Start();
+            gameTimer.Start();
+        }
+
+        /// <summary>
+        /// 绘制画面每帧画面，由计时器调用
+        /// </summary>
+        private void paint()
+        {
+
         }
 
         private void animationTimer_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)

@@ -57,7 +57,9 @@ namespace Invaders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ClientSize = new System.Drawing.Size(Options.width, Options.height);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "Form";
             this.Text = "Invaders";
