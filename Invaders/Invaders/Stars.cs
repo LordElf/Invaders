@@ -41,7 +41,7 @@ namespace Invaders
 
         Random random = new Random();
         private int amount = 300; //星星的数量
-        private int changeInAmount = 5; //每次闪烁变化的星星
+        private int changeInAmount = 2; //每次闪烁变化的星星
 
         List<Star> stars = new List<Star>();
 
