@@ -31,12 +31,27 @@ namespace Invaders
         {
             animationTimer.Start();
             gameTimer.Start();
+            welcome();
         }
 
 
         bool isStartTipFadein = false;
+        private Stars stars = new Stars();
         private void animationTimer_Tick(object sender, EventArgs e)
         {
+
+
+            stars.twinkle();
+            this.Refresh();
+        }
+
+        private void welcome()
+        {
+            this.playerShip.Visible = false;
+            this.playerLife.Visible = false;
+            this.lifeIcon.Visible = false;
+            this.currentScore.Visible = false;
+
             //以下代码试图通过改变a值（透明度）实现startTip的渐变闪烁，但不生效
 
             //if (startTip.Visible == true)
@@ -83,34 +98,44 @@ namespace Invaders
                 {
                     i = -15;
                 }
-                startTip.ForeColor = Color.FromArgb(startTip.ForeColor.R + i, startTip.ForeColor.R + i, startTip.ForeColor.R + i);      
+                startTip.ForeColor = Color.FromArgb(startTip.ForeColor.R + i, startTip.ForeColor.R + i, startTip.ForeColor.R + i);
             }
 
             //TODO:以上代码请尽早修改
-
-            game.stars.twinkle();
-            this.Refresh();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
+            this.currentScore.Text = game.currentScore.ToString();
+            this.playerLife.Text = game.playerShip.life.ToString();
+            this.Refresh();
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-
+            
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
         {
-            game.draw(e.Graphics);
+                
+            stars.draw(e.Graphics);
+        }
+        
+        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            welcomeShutDown();
         }
 
-        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        private void welcomeShutDown()
         {
             welcomeTitle.Visible = false;
             startTip.Visible = false;
+
+            this.currentScore.Visible = true;
+            this.playerShip.Visible = true;
+            this.playerLife.Visible = true;
+            this.lifeIcon.Visible = true;
         }
     }
 }

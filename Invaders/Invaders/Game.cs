@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Invaders
 {
@@ -12,20 +13,20 @@ namespace Invaders
     public class Game
     {
         /// <summary>
+        /// 当前分数
+        /// </summary>
+        public int currentScore { get; } = 0;
+        public PlayerShip playerShip = new PlayerShip();
+
+
+        /// <summary>
         /// Game类的唯一实例
         /// </summary>
         public static Game instance { get; } = new Game();
-
-        public Stars stars = new Stars();
-
         private Game()
         {
-
         }
 
-        public void draw(Graphics graphics)
-        {
-            stars.draw(graphics);
-        }
+
     } 
 }

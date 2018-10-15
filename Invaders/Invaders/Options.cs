@@ -25,5 +25,6 @@ namespace Invaders
         /// </summary>
         public static int height { get; } = 720;
 
+
     }
 }
