@@ -70,15 +70,15 @@ namespace Invaders
             // 
             this.startTip.AutoSize = true;
             this.startTip.BackColor = System.Drawing.Color.Transparent;
-            this.startTip.Font = new System.Drawing.Font("华文琥珀", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.startTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTip.ForeColor = System.Drawing.SystemColors.Info;
             this.startTip.Location = new System.Drawing.Point(705, 678);
             this.startTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.startTip.Name = "startTip";
-            this.startTip.Size = new System.Drawing.Size(280, 28);
+            this.startTip.Size = new System.Drawing.Size(290, 31);
             this.startTip.TabIndex = 1;
             this.startTip.Text = "Press anykey to start\r\n";
-            this.startTip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.startTip.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // welcomeTitle
             // 
@@ -99,22 +99,21 @@ namespace Invaders
             // currentScore
             // 
             this.currentScore.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.currentScore.Font = new System.Drawing.Font("隶书", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.currentScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.currentScore.ForeColor = System.Drawing.Color.LightCyan;
             this.currentScore.Location = new System.Drawing.Point(76, 54);
             this.currentScore.Name = "currentScore";
             this.currentScore.Size = new System.Drawing.Size(296, 57);
             this.currentScore.TabIndex = 2;
-        
-
+            this.currentScore.Click += new System.EventHandler(this.currentScore_Click);
             // 
             // playerShip
             // 
             this.playerShip.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.playerShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playerShip.Location = new System.Drawing.Point(740, 678);
+            this.playerShip.Location = new System.Drawing.Point(800, 678);
             this.playerShip.Name = "playerShip";
-            this.playerShip.Size = new System.Drawing.Size(191, 123);
+            this.playerShip.Size = new System.Drawing.Size(118, 123);
             this.playerShip.TabIndex = 3;
             this.playerShip.TabStop = false;
             // 
@@ -131,11 +130,11 @@ namespace Invaders
             // playerLife
             // 
             this.playerLife.AutoSize = true;
-            this.playerLife.Font = new System.Drawing.Font("华文琥珀", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.playerLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.playerLife.ForeColor = System.Drawing.Color.Azure;
             this.playerLife.Location = new System.Drawing.Point(1557, 62);
             this.playerLife.Name = "playerLife";
-            this.playerLife.Size = new System.Drawing.Size(0, 31);
+            this.playerLife.Size = new System.Drawing.Size(0, 36);
             this.playerLife.TabIndex = 5;
             // 
             // Form
@@ -157,7 +156,7 @@ namespace Invaders
             this.MaximumSize = new System.Drawing.Size(1701, 888);
             this.MinimumSize = new System.Drawing.Size(1701, 888);
             this.Name = "Form";
-            this.Text = "Invaders";
+            this.Text = "0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);

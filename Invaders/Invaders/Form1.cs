@@ -19,6 +19,15 @@ namespace Invaders
 
         private Game game = Game.instance;
 
+        //记录界面的状态
+        private enum Status
+        {
+            beginning,
+            playing,
+            over
+        }
+        Status status = Status.beginning;
+
         /// <summary>
         /// Form的构造函数
         /// </summary>
@@ -113,7 +122,19 @@ namespace Invaders
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            int x = this.playerShip.Location.X;
+            int y = this.playerShip.Location.Y;
+
+            if(this.status == Status.playing)
+            {
+                if (e.KeyCode == Keys.Right) x += 10;
+                else if (e.KeyCode == Keys.Left) x -= 10;
+                else if (e.KeyCode == Keys.Up) y -= 1;
+                else if (e.KeyCode == Keys.Down) y += 1;
+            }
+
+            if(x >= 0 && x <= Width - this.playerShip.Height) 
+                this.playerShip.Location = new Point(x, y);
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
@@ -132,10 +153,17 @@ namespace Invaders
             welcomeTitle.Visible = false;
             startTip.Visible = false;
 
+            this.status = Status.playing;
+
             this.currentScore.Visible = true;
             this.playerShip.Visible = true;
             this.playerLife.Visible = true;
             this.lifeIcon.Visible = true;
+        }
+
+        private void currentScore_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
