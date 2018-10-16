@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Invaders;
@@ -116,25 +117,37 @@ namespace Invaders
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             this.currentScore.Text = game.currentScore.ToString();
-            this.playerLife.Text = game.playerShip.life.ToString();
+            this.playerLife.Text = game.getPlayerLife().ToString();
             this.Refresh();
         }
 
+        List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            int x = this.playerShip.Location.X;
-            int y = this.playerShip.Location.Y;
-
-            if(this.status == Status.playing)
+            if (this.status == Status.playing)
             {
-                if (e.KeyCode == Keys.Right) x += 10;
-                else if (e.KeyCode == Keys.Left) x -= 10;
-                else if (e.KeyCode == Keys.Up) y -= 1;
-                else if (e.KeyCode == Keys.Down) y += 1;
+                switch (Options.GameKeys.interpret(e.KeyCode))
+                {
+                    case Options.GameBehaviors.moveUp:
+                        game.movePlayer(Direction.up);
+                        break;
+                    case Options.GameBehaviors.moveDown:
+                        game.movePlayer(Direction.down);
+                        break;
+                    case Options.GameBehaviors.moveLeft:
+                        game.movePlayer(Direction.left);
+                        break;
+                    case Options.GameBehaviors.moveRight:
+                        game.movePlayer(Direction.right);
+                        break;
+
+                    default:
+                        break;
+
+                }
             }
 
-            if(x >= 0 && x <= Width - this.playerShip.Height) 
-                this.playerShip.Location = new Point(x, y);
+
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
@@ -159,11 +172,6 @@ namespace Invaders
             this.playerShip.Visible = true;
             this.playerLife.Visible = true;
             this.lifeIcon.Visible = true;
-        }
-
-        private void currentScore_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

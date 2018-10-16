@@ -72,10 +72,9 @@ namespace Invaders
             this.startTip.BackColor = System.Drawing.Color.Transparent;
             this.startTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTip.ForeColor = System.Drawing.SystemColors.Info;
-            this.startTip.Location = new System.Drawing.Point(705, 678);
-            this.startTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.startTip.Location = new System.Drawing.Point(529, 542);
             this.startTip.Name = "startTip";
-            this.startTip.Size = new System.Drawing.Size(290, 31);
+            this.startTip.Size = new System.Drawing.Size(235, 25);
             this.startTip.TabIndex = 1;
             this.startTip.Text = "Press anykey to start\r\n";
             this.startTip.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -88,10 +87,9 @@ namespace Invaders
             this.welcomeTitle.BackColor = System.Drawing.Color.Transparent;
             this.welcomeTitle.Image = global::Invaders.Properties.Resources.welcomeTitle;
             this.welcomeTitle.InitialImage = null;
-            this.welcomeTitle.Location = new System.Drawing.Point(453, 82);
-            this.welcomeTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.welcomeTitle.Location = new System.Drawing.Point(340, 66);
             this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(800, 500);
+            this.welcomeTitle.Size = new System.Drawing.Size(600, 400);
             this.welcomeTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.welcomeTitle.TabIndex = 0;
             this.welcomeTitle.TabStop = false;
@@ -101,19 +99,20 @@ namespace Invaders
             this.currentScore.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.currentScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.currentScore.ForeColor = System.Drawing.Color.LightCyan;
-            this.currentScore.Location = new System.Drawing.Point(76, 54);
+            this.currentScore.Location = new System.Drawing.Point(57, 43);
+            this.currentScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentScore.Name = "currentScore";
-            this.currentScore.Size = new System.Drawing.Size(296, 57);
+            this.currentScore.Size = new System.Drawing.Size(222, 46);
             this.currentScore.TabIndex = 2;
-            this.currentScore.Click += new System.EventHandler(this.currentScore_Click);
             // 
             // playerShip
             // 
             this.playerShip.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.playerShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playerShip.Location = new System.Drawing.Point(800, 678);
+            this.playerShip.Location = new System.Drawing.Point(600, 542);
+            this.playerShip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.playerShip.Name = "playerShip";
-            this.playerShip.Size = new System.Drawing.Size(118, 123);
+            this.playerShip.Size = new System.Drawing.Size(88, 98);
             this.playerShip.TabIndex = 3;
             this.playerShip.TabStop = false;
             // 
@@ -121,9 +120,10 @@ namespace Invaders
             // 
             this.lifeIcon.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.lifeIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.lifeIcon.Location = new System.Drawing.Point(1484, 36);
+            this.lifeIcon.Location = new System.Drawing.Point(1113, 29);
+            this.lifeIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lifeIcon.Name = "lifeIcon";
-            this.lifeIcon.Size = new System.Drawing.Size(67, 75);
+            this.lifeIcon.Size = new System.Drawing.Size(50, 60);
             this.lifeIcon.TabIndex = 4;
             this.lifeIcon.TabStop = false;
             // 
@@ -132,17 +132,18 @@ namespace Invaders
             this.playerLife.AutoSize = true;
             this.playerLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.playerLife.ForeColor = System.Drawing.Color.Azure;
-            this.playerLife.Location = new System.Drawing.Point(1557, 62);
+            this.playerLife.Location = new System.Drawing.Point(1168, 50);
+            this.playerLife.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerLife.Name = "playerLife";
-            this.playerLife.Size = new System.Drawing.Size(0, 36);
+            this.playerLife.Size = new System.Drawing.Size(0, 29);
             this.playerLife.TabIndex = 5;
             // 
             // Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ClientSize = new System.Drawing.Size(1683, 841);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.playerLife);
             this.Controls.Add(this.lifeIcon);
             this.Controls.Add(this.playerShip);
@@ -151,10 +152,9 @@ namespace Invaders
             this.Controls.Add(this.welcomeTitle);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1701, 888);
-            this.MinimumSize = new System.Drawing.Size(1701, 888);
+            this.MaximumSize = new System.Drawing.Size(1280, 718);
+            this.MinimumSize = new System.Drawing.Size(1082, 699);
             this.Name = "Form";
             this.Text = "0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

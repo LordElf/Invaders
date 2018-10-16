@@ -16,7 +16,15 @@ namespace Invaders
         /// 当前分数
         /// </summary>
         public int currentScore { get; } = 0;
-        public PlayerShip playerShip = new PlayerShip();
+        private PlayerShip playerShip = new PlayerShip();
+
+        /// <summary>
+        /// 玩家生命值
+        /// </summary>
+        public int getPlayerLife()
+        {
+            return playerShip.life;
+        }
 
 
         /// <summary>
@@ -27,6 +35,15 @@ namespace Invaders
         {
         }
 
+        /// <summary>
+        /// 移动玩家舰船
+        /// </summary>
+        /// <param name="direction">移动方向</param>
+        /// <example>movePlayer(Direction.up | Direction.left)</example>
+        public void movePlayer(Direction direction)
+        {
+            playerShip.move(direction);
+        }
 
     } 
 }
