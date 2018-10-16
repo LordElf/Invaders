@@ -47,7 +47,11 @@ namespace Invaders
         /// <summary>
         /// 舰船每帧可移动的距离，单位为像素
         /// </summary>
-        protected int speed; 
+        protected int speed;
+        /// <summary>
+        /// 舰船的炮击速度，单位为像素/帧
+        /// </summary>
+        protected int shottingSpeed;
         /// <summary>
         /// 舰船的飞行方向，用于传参给move函数
         /// </summary>
@@ -81,6 +85,7 @@ namespace Invaders
         public PlayerShip()
         {
             this.speed = 10;
+            this.shottingSpeed = 50;
         }
     }
 }
