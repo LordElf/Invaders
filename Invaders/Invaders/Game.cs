@@ -45,5 +45,10 @@ namespace Invaders
             playerShip.move(direction);
         }
 
+        public Point getPlayerPoisition()
+        {
+            return new Point(playerShip.positionX, playerShip.positionY);
+        }
+
     } 
 }

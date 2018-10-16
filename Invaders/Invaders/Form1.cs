@@ -19,6 +19,7 @@ namespace Invaders
     {
 
         private Game game = Game.instance;
+        private GameKeys gameKeys = GameKeys.instance;
 
         //记录界面的状态
         private enum Status
@@ -116,28 +117,30 @@ namespace Invaders
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            this.playerShip.Location = game.getPlayerPoisition();
+
             this.currentScore.Text = game.currentScore.ToString();
             this.playerLife.Text = game.getPlayerLife().ToString();
             this.Refresh();
         }
 
-        List<Keys> keysPressed = new List<Keys>();
+        static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (this.status == Status.playing)
             {
-                switch (Options.GameKeys.interpret(e.KeyCode))
+                switch (GameKeys.interpret(e.KeyCode))
                 {
-                    case Options.GameBehaviors.moveUp:
+                    case GameBehaviors.moveUp:
                         game.movePlayer(Direction.up);
                         break;
-                    case Options.GameBehaviors.moveDown:
+                    case GameBehaviors.moveDown:
                         game.movePlayer(Direction.down);
                         break;
-                    case Options.GameBehaviors.moveLeft:
+                    case GameBehaviors.moveLeft:
                         game.movePlayer(Direction.left);
                         break;
-                    case Options.GameBehaviors.moveRight:
+                    case GameBehaviors.moveRight:
                         game.movePlayer(Direction.right);
                         break;
 

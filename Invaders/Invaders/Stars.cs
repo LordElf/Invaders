@@ -11,7 +11,6 @@ namespace Invaders
     /// 2018.10.13: 创建并完全实现 by woan</remarks>
     public class Stars
     {
-        Options options = Options.instance;
         private class Star
         {
             Point point = new Point();
@@ -21,8 +20,8 @@ namespace Invaders
             /// <param name="random">由外部提供随机数以避免高并发操作造成随机数重合</param>
             public Star(Random random)
             {
-                point.X = random.Next(0, options.width);
-                point.Y = random.Next(0, options.height);
+                point.X = random.Next(0, Options.width);
+                point.Y = random.Next(0, Options.height);
             }
 
             /// <summary>
@@ -31,8 +30,8 @@ namespace Invaders
             /// <param name="random"></param>
             public void changePosition(Random random)
             {
-                point.X = random.Next(0, options.width);
-                point.Y = random.Next(0, options.height);
+                point.X = random.Next(0, Options.width);
+                point.Y = random.Next(0, Options.height);
             }
 
             public void draw(Graphics graphics)
