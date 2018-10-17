@@ -77,6 +77,7 @@ namespace Invaders
             gameKeyList.Add(new GameKey(Keys.S, Keys.Down, GameBehaviors.moveDown));
             gameKeyList.Add(new GameKey(Keys.A, Keys.Left, GameBehaviors.moveLeft));
             gameKeyList.Add(new GameKey(Keys.D, Keys.Right, GameBehaviors.moveRight));
+            gameKeyList.Add(new GameKey(Keys.Space, GameBehaviors.shot));
 
         }
 

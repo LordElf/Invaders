@@ -47,13 +47,13 @@ namespace Invaders
         /// <summary>
         /// 舰船每帧可移动的距离，单位为像素
         /// </summary>
-        protected int speed; 
+        protected int speed;
         /// <summary>
         /// 舰船的飞行方向，用于传参给move函数
         /// </summary>
         public void move(Direction direction)
         {
-            //TODO：加入边界检测
+            //TODO：加入边界检测//建议在form加边界检测
             if (direction == Direction.left)
             {
                 positionX -= speed;
@@ -71,6 +71,15 @@ namespace Invaders
                 positionY += speed;
             }
         }
+        ///<summary>
+        ///舰船的炮击形状大小及射击速度
+        /// </summary>
+        protected class LazerGun
+        {
+            /// 舰船的炮击速度，单位为像素/帧
+            int shottingSpeed;
+            int Width, Heighth;
+        }
     }
 
     /// <summary>
@@ -80,7 +89,8 @@ namespace Invaders
     {
         public PlayerShip()
         {
-            this.speed = 5;
+            this.speed = 10;
+            this.shottingSpeed = 50;
         }
     }
 }
