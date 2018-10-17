@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Invaders
 {
@@ -15,9 +17,21 @@ namespace Invaders
     abstract class Gun
     {
         protected int shottingSpeed;
-        public void shot(Bullet bullet)
+        public void shot(Bullet bullet, PaintEventArgs e)
         {
-            new System.Drawing
+            Pen myBrush = new Pen(Color.Yellow, 3);
+            e.Graphics.DrawRectangle(myBrush, bullet.size);
+            myBrush.Dispose();
+        }
+        enum direction
+        {
+            up, 
+            down
+        }
+
+        internal void shot(normalBullet normal, PaintEventArgs paintEventArgs, object e)
+        {
+            throw new NotImplementedException();
         }
     }
 

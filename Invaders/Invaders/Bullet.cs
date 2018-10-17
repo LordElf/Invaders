@@ -17,7 +17,24 @@ namespace Invaders
     {
         protected int speed;
         protected int injury;
-        public Rectangle size; 
+        public Rectangle bulletSize { get;  set; } 
+        public enum Direction
+        {
+            up,
+            down
+        }
+
+        public bool move(Direction direction)
+        {
+            if (direction == Direction.up)
+            {
+                bulletSize.Location.Y -= this.speed;
+            }
+
+            if (this.bulletSize.Location.Y >= 0 && this.bulletSize.Location.Y <= Options.height)
+                return true;
+            else return false;
+        }
     }
 
     class normalBullet : Bullet{
@@ -25,9 +42,10 @@ namespace Invaders
         {
             this.speed = 30;
             this.injury = 1;
-            this.size.Height = 15;
-            this.size.Width = 5;
+            this.bulletSize.Height = 15;
+            this.bulletSize.Width = 5;
 
+            move(normalBullet.Direction);
         }
     }
 }

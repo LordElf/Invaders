@@ -115,7 +115,7 @@ namespace Invaders
             //TODO:以上代码请尽早修改
         }
 
-        private void gameTimer_Tick(object sender, EventArgs e)
+        private void gameTimer_Tick(object sender, EventArgs e, PaintEventArgs e1)
         {
             if (this.status == Status.playing)
             {
@@ -138,7 +138,7 @@ namespace Invaders
                             game.movePlayer(Direction.right);
                             break;
                         case GameBehaviors.shot:
-                            game.Shot();
+                            game.shot(e1);
                             break;
 
                         default:
