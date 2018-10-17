@@ -110,7 +110,7 @@ namespace Invaders
             this.playerShip.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.playerShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.playerShip.Location = new System.Drawing.Point(600, 542);
-            this.playerShip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playerShip.Margin = new System.Windows.Forms.Padding(2);
             this.playerShip.Name = "playerShip";
             this.playerShip.Size = new System.Drawing.Size(88, 98);
             this.playerShip.TabIndex = 3;
@@ -121,7 +121,7 @@ namespace Invaders
             this.lifeIcon.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.lifeIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.lifeIcon.Location = new System.Drawing.Point(1113, 29);
-            this.lifeIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lifeIcon.Margin = new System.Windows.Forms.Padding(2);
             this.lifeIcon.Name = "lifeIcon";
             this.lifeIcon.Size = new System.Drawing.Size(50, 60);
             this.lifeIcon.TabIndex = 4;
@@ -162,6 +162,7 @@ namespace Invaders
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerShip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();

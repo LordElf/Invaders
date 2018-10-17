@@ -80,7 +80,7 @@ namespace Invaders
     {
         public PlayerShip()
         {
-            this.speed = 10;
+            this.speed = 5;
         }
     }
 }

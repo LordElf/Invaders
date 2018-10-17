@@ -117,6 +117,32 @@ namespace Invaders
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            if (this.status == Status.playing)
+            {
+                foreach (Keys i in keysPressed)
+                {
+                    switch (GameKeys.interpret(i))
+                    {
+                        case GameBehaviors.moveUp:
+                            game.movePlayer(Direction.up);
+                            break;
+                        case GameBehaviors.moveDown:
+                            game.movePlayer(Direction.down);
+                            break;
+                        case GameBehaviors.moveLeft:
+                            game.movePlayer(Direction.left);
+                            break;
+                        case GameBehaviors.moveRight:
+                            game.movePlayer(Direction.right);
+                            break;
+
+                        default:
+                            break;
+
+                    } 
+                }
+            }
+
             this.playerShip.Location = game.getPlayerPoisition();
 
             this.currentScore.Text = game.currentScore.ToString();
@@ -127,30 +153,12 @@ namespace Invaders
         static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if (this.status == Status.playing)
-            {
-                switch (GameKeys.interpret(e.KeyCode))
-                {
-                    case GameBehaviors.moveUp:
-                        game.movePlayer(Direction.up);
-                        break;
-                    case GameBehaviors.moveDown:
-                        game.movePlayer(Direction.down);
-                        break;
-                    case GameBehaviors.moveLeft:
-                        game.movePlayer(Direction.left);
-                        break;
-                    case GameBehaviors.moveRight:
-                        game.movePlayer(Direction.right);
-                        break;
+            keysPressed.Add(e.KeyCode);
+        }
 
-                    default:
-                        break;
-
-                }
-            }
-
-
+        private void Form_KeyUp(object sender, KeyEventArgs e)
+        {
+            keysPressed.Remove(e.KeyCode);
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
@@ -176,5 +184,7 @@ namespace Invaders
             this.playerLife.Visible = true;
             this.lifeIcon.Visible = true;
         }
+
+
     }
 }
