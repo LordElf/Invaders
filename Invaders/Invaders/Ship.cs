@@ -90,7 +90,7 @@ namespace Invaders
         public PlayerShip()
         {
             this.speed = 10;
-            this.shottingSpeed = 50;
+            //this.shottingSpeed = 50;
         }
     }
 }

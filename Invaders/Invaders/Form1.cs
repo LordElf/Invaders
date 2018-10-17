@@ -155,7 +155,11 @@ namespace Invaders
         static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            keysPressed.Add(e.KeyCode);
+            if (!keysPressed.Contains(e.KeyCode))
+            {
+                keysPressed.Add(e.KeyCode);
+            }
+
         }
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
