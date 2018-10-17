@@ -119,8 +119,10 @@ namespace Invaders
         {
             if (this.status == Status.playing)
             {
+                testLabel.Text = "";
                 foreach (Keys i in keysPressed)
                 {
+                    testLabel.Text = i.ToString();
                     switch (GameKeys.interpret(i))
                     {
                         case GameBehaviors.moveUp:
@@ -158,7 +160,7 @@ namespace Invaders
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
-            keysPressed.Remove(e.KeyCode);
+            keysPressed.RemoveAll(k => k == e.KeyCode);
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)

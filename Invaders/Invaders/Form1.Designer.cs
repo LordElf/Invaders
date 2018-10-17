@@ -51,6 +51,7 @@ namespace Invaders
             this.playerShip = new System.Windows.Forms.PictureBox();
             this.lifeIcon = new System.Windows.Forms.PictureBox();
             this.playerLife = new System.Windows.Forms.Label();
+            this.testLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerShip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
@@ -138,12 +139,24 @@ namespace Invaders
             this.playerLife.Size = new System.Drawing.Size(0, 29);
             this.playerLife.TabIndex = 5;
             // 
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.testLabel.Location = new System.Drawing.Point(25, 29);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(76, 21);
+            this.testLabel.TabIndex = 6;
+            this.testLabel.Text = "label1";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.playerLife);
             this.Controls.Add(this.lifeIcon);
             this.Controls.Add(this.playerShip);
@@ -181,6 +194,7 @@ namespace Invaders
         private System.Windows.Forms.PictureBox playerShip;
         private System.Windows.Forms.PictureBox lifeIcon;
         private System.Windows.Forms.Label playerLife;
+        private System.Windows.Forms.Label testLabel;
     }
 }
 
