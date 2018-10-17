@@ -22,7 +22,8 @@ namespace Invaders
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+            Form form = new Form();
+            Application.Run(form);
         }
     }
 }

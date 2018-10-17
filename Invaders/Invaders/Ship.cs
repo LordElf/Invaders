@@ -44,6 +44,14 @@ namespace Invaders
         /// 舰船的Y坐标
         /// </summary>
         public int positionY { get; set; }
+        ///<summary>
+        ///飞船的大小 Width Height
+        /// </summary>
+        public int shipWidth { get; set; }
+        ///<summary>
+        ///飞船的高度Heigh 为width的4/3
+        /// </summary>
+        public int shipHeigh { get; set;} 
         /// <summary>
         /// 舰船每帧可移动的距离，单位为像素
         /// </summary>
@@ -53,32 +61,31 @@ namespace Invaders
         /// </summary>
         public void move(Direction direction)
         {
-            //TODO：加入边界检测//建议在form加边界检测
+            int currentLocationX = positionX;
+            int currentLocationY = positionY;
+            //TODO：加入边界检测
             if (direction == Direction.left)
             {
-                positionX -= speed;
+                currentLocationX -= speed;
             }
             if (direction == Direction.right)
             {
-                positionX += speed;
+                currentLocationX += speed;
             }
             if (direction == Direction.up)
             {
-                positionY -= speed;
+                currentLocationY -= speed;
             }
             if (direction == Direction.down)
             {
-                positionY += speed;
+                currentLocationY += speed;
             }
-        }
-        ///<summary>
-        ///舰船的炮击形状大小及射击速度
-        /// </summary>
-        protected class LazerGun
-        {
-            /// 舰船的炮击速度，单位为像素/帧
-            int shottingSpeed;
-            int Width, Heighth;
+            if(currentLocationX >= 0 && currentLocationX <= Options.width - this.shipWidth && 
+                currentLocationY >= 0 && currentLocationY <= Options.height - this.shipHeigh)
+            {
+                positionX = currentLocationX;
+                positionY = currentLocationY;
+            }
         }
     }
 
@@ -87,10 +94,14 @@ namespace Invaders
     /// </summary>
     public class PlayerShip : Ship
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public PlayerShip()
         {
             this.speed = 10;
-            //this.shottingSpeed = 50;
+            this.shipWidth = Options.width / 10;
+            this.shipHeigh = Options.height / 10;
         }
     }
 }

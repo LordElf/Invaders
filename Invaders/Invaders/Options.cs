@@ -22,17 +22,17 @@ namespace Invaders
     static class Options
     {
         //TODO:Options应有对应配置文件
-
+         
 
         /// <summary>
         /// 窗体宽度
         /// </summary>
-        static public int width { get; } = 1280;
+        static public int width { get; } = Screen.PrimaryScreen.WorkingArea.Width;
 
         /// <summary>
         /// 窗体高度
         /// </summary>
-        static public int height { get; } = 720;
+        static public int height { get; } = Screen.PrimaryScreen.WorkingArea.Height;
 
         //static public GameKeys gameKeys { get; } = GameKeys.instance;
     }

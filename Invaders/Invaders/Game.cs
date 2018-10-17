@@ -50,5 +50,25 @@ namespace Invaders
             return new Point(playerShip.positionX, playerShip.positionY);
         }
 
+        /// <summary>
+        /// get the gun location
+        /// </summary>
+        /// <returns></returns>
+        public Point getPlayerGunPosition()
+        {
+            return new Point(playerShip.positionX + playerShip.shipWidth / 2, playerShip.positionY + 5);
+        }
+
+        /// <summary>
+        /// shot a bullet
+        /// </summary>
+        /// <returns></returns>
+        public void shot()
+        { 
+            normalBullet normal = new normalBullet();
+            normal.size.Location = getPlayerGunPosition();
+            Gun gun = new railGun();
+            gun.shot(normal);
+        }
     } 
 }

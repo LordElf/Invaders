@@ -137,6 +137,9 @@ namespace Invaders
                         case GameBehaviors.moveRight:
                             game.movePlayer(Direction.right);
                             break;
+                        case GameBehaviors.shot:
+                            game.Shot();
+                            break;
 
                         default:
                             break;
