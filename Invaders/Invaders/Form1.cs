@@ -40,6 +40,10 @@ namespace Invaders
 
         private void Form_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(Options.formWidth, Options.formHeight);
+            this.playerShip.Size = new Size(game.getPlayerWidth(), game.getPlayerHeight());
+            
+
             animationTimer.Start();
             gameTimer.Start();
             welcome();
@@ -119,10 +123,10 @@ namespace Invaders
         {
             if (this.status == Status.playing)
             {
-                testLabel.Text = "";
+
                 foreach (Keys i in keysPressed)
                 {
-                    testLabel.Text = i.ToString();
+
                     switch (GameKeys.interpret(i))
                     {
                         case GameBehaviors.moveUp:
@@ -151,7 +155,7 @@ namespace Invaders
             this.playerShip.Location = game.getPlayerPoisition();
 
             this.currentScore.Text = game.currentScore.ToString();
-            this.playerLife.Text = game.getPlayerLife().ToString();
+            this.playerLife.Text = "X" + game.getPlayerLife().ToString();
             this.Refresh();
         }
 

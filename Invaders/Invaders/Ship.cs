@@ -47,11 +47,11 @@ namespace Invaders
         ///<summary>
         ///飞船的大小 Width Height
         /// </summary>
-        public int shipWidth { get; set; }
+        public int width { get; set; }
         ///<summary>
         ///飞船的高度Heigh 为width的4/3
         /// </summary>
-        public int shipHeigh { get; set;} 
+        public int heigh { get; set;} 
         /// <summary>
         /// 舰船每帧可移动的距离，单位为像素
         /// </summary>
@@ -63,36 +63,41 @@ namespace Invaders
         /// <param name="direction">移动方向，在同一命名空间定义</param>
         public void move(Direction direction)
         {
+            int leftBorderMagicNum  = 33;       //左边界的神奇误差
+            int rightBorderMagicNum = 15;       //右边界的神奇误差
+            int upBorderMagicNum    = 15;       //上边界有计算误差，因为根本没有算分数等元素的高度
+            int downBorderMagicNum  = 35;       //下边界的神奇误差
+
             if (direction == Direction.left)
             {
                 positionX -= speed;
-                if (positionX - shipWidth / 2 <= Options.gameLeftBorder)
+                if (positionX <= Options.gameLeftBorder - leftBorderMagicNum)
                 {
-                    positionX = shipWidth / 2 + Options.gameLeftBorder;
+                    positionX = Options.gameLeftBorder - leftBorderMagicNum;
                 }
             }
             if (direction == Direction.right)
             {
                 positionX += speed;
-                if (positionX + shipWidth / 2 >= Options.gameRightBorder)
+                if (positionX + width >= Options.gameRightBorder + rightBorderMagicNum)
                 {
-                    positionX = Options.gameRightBorder - shipWidth / 2;
+                    positionX = Options.gameRightBorder - width + rightBorderMagicNum;
                 }
             }
             if (direction == Direction.up)
             {
                 positionY -= speed;
-                if (positionY - shipHeigh / 2 <= Options.gameUpBorder)
+                if (positionY - heigh / 2 <= Options.gameUpBorder - upBorderMagicNum)
                 {
-                    positionY = shipHeigh / 2 + Options.gameUpBorder;
+                    positionY = heigh / 2 + Options.gameUpBorder - upBorderMagicNum;
                 }
             }
             if (direction == Direction.down)
             {
                 positionY += speed;
-                if (positionY + shipHeigh / 2 >= Options.gameDownBorder)
+                if (positionY + heigh >= Options.gameDownBorder - downBorderMagicNum)
                 {
-                    positionY = Options.gameDownBorder - shipHeigh / 2;
+                    positionY = Options.gameDownBorder - heigh - downBorderMagicNum;
                 }
             }
         }
@@ -104,13 +109,15 @@ namespace Invaders
     public class PlayerShip : Ship
     {
         /// <summary>
-        /// 
+        /// the player's ship
         /// </summary>
         public PlayerShip()
         {
             this.speed = 10;
-            this.shipWidth = Options.formWidth / 10;
-            this.shipHeigh = Options.formHeight / 10;
+            this.width = Options.formWidth / 10;
+            this.heigh = Options.formHeight / 10;
+            this.positionX = (Options.gameRightBorder - Options.gameLeftBorder) / 2 - width + 55; //神奇误差，如上
+            this.positionY = Options.gameDownBorder - heigh - 35;
         }
     }
 }

@@ -55,12 +55,30 @@ namespace Invaders
         }
 
         /// <summary>
+        /// get the player's width
+        /// </summary>
+        /// <returns></returns>
+        public int getPlayerWidth()
+        {
+            return playerShip.width;
+        }
+
+        /// <summary>
+        /// get the player's height
+        /// </summary>
+        /// <returns></returns>
+        public int getPlayerHeight()
+        {
+            return playerShip.heigh;
+        }
+
+        /// <summary>
         /// get the gun location
         /// </summary>
         /// <returns></returns>
         public Point getPlayerGunPosition()
         {
-            return new Point(playerShip.positionX + playerShip.shipWidth / 2, playerShip.positionY + 5);
+            return new Point(playerShip.positionX + playerShip.width / 2, playerShip.positionY + 5);
         }
 
         /// <summary>

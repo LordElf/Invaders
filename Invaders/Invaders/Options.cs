@@ -23,31 +23,34 @@ namespace Invaders
     {
         //TODO:Options应有对应配置文件
          
+        //以下数个宽高属性顺序不可更改，累赘属性用于可能的UI设计更改
 
         /// <summary>
         /// 窗体宽度
         /// </summary>
-        static public int formWidth { get; } = Screen.PrimaryScreen.WorkingArea.Width;
-
-        /// <summary>
-        /// 游戏主体框的宽度
-        /// </summary>
-        static public int gameWidth { get; } = formHeight * 4 / 3;      //此处有bug，gameWidth会等于0
+        static public int formWidth { get; } = 1280;
 
         /// <summary>
         /// 窗体高度
         /// </summary>
-        static public int formHeight { get; } = Screen.PrimaryScreen.WorkingArea.Height;
+        static public int formHeight { get; } = 720;
+
+        /// <summary>
+        /// 游戏主体框的宽度
+        /// </summary>
+        static public int gameWidth { get; } = formWidth;    
 
         /// <summary>
         /// 游戏主体框的高度
         /// </summary>
-        static public int gameHeight = formHeight;
+        static public int gameHeight { get; } = formHeight;
 
         /// <summary>
         /// 游戏左边界X坐标
         /// </summary>
-        static public int gameLeftBorder { get; } = (formWidth - gameWidth) / 2;    //由于gameWidth等于0，此处会有问题
+        static public int gameLeftBorder { get; } = 0;    
+
+
 
         /// <summary>
         /// 游戏右边界X坐标
