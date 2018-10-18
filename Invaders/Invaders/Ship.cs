@@ -63,6 +63,34 @@ namespace Invaders
         /// <param name="direction">移动方向，在同一命名空间定义</param>
         public void move(Direction direction)
         {
+            /*created by Shawn
+            int currentPositionX = positionX, currentPositionY = positionY;
+            switch (direction)
+            {
+                case Direction.down:
+                    currentPositionY += speed;
+                    break;
+                case Direction.up:
+                    currentPositionY -= speed;
+                    break;
+                case Direction.left:
+                    currentPositionX -= speed;
+                    break;
+                case Direction.right:
+                    currentPositionX += speed;
+                    break;
+                default:
+                    break;
+            }
+            
+            if(currentPositionX >= Options.gameLeftBorder && currentPositionX + shipWidth <= Options.gameRightBorder
+                && currentPositionY >= Options.gameUpBorder && currentPositionY + shipHeigh <= Options.gameDownBorder)
+            {
+                positionX = currentPositionX;
+                positionY = currentPositionY;
+            }
+            */
+            
             if (direction == Direction.left)
             {
                 positionX -= speed;
@@ -95,6 +123,7 @@ namespace Invaders
                     positionY = Options.gameDownBorder - shipHeigh / 2;
                 }
             }
+            
         }
     }
 

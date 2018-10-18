@@ -68,12 +68,9 @@ namespace Invaders
         /// </summary>
         /// <returns></returns>
         public void shot()
-        { 
-            NormalBullet normalBullet = new NormalBullet();
-            //normalBullet.bulletSize.Location = getPlayerGunPosition();
-            //Gun gun = new railGun();
-            //normalBullet.direction = gun.direction;
-            //gun.shot(normalBullet);
+        {
+            Gun gun = new normalGun();
+
         }
     } 
 }

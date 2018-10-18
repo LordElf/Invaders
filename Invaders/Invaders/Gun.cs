@@ -16,7 +16,8 @@ namespace Invaders
     /// </remarks>
     abstract class Gun
     {
-        protected int shottingSpeed;
+        // time interval between two shots (ms)
+        protected int shottingInterval;
         public void shot(Bullet bullet, PaintEventArgs e)
         {
             Pen myBrush = new Pen(Color.Yellow, 3);
@@ -29,9 +30,8 @@ namespace Invaders
             down
         }
 
-        internal void shot(NormalBullet normal, PaintEventArgs paintEventArgs, object e)
+        internal void shot()
         {
-            throw new NotImplementedException();
         }
     }
 
@@ -39,7 +39,15 @@ namespace Invaders
     {
         public railGun()
         {
-            this.shottingSpeed = 100;
+            this.shottingInterval = 100;
+        }
+    }
+
+    class normalGun : Gun
+    {
+        public normalGun()
+        {
+            this.shottingInterval = 300;
         }
     }
 }

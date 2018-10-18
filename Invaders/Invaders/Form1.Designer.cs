@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace Invaders
 {
@@ -111,12 +112,13 @@ namespace Invaders
             // 
             this.playerShip.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.playerShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playerShip.Location = new System.Drawing.Point(801, 678);
+            this.playerShip.Location = new System.Drawing.Point(754, 678);
             this.playerShip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playerShip.Name = "playerShip";
             this.playerShip.Size = new System.Drawing.Size(192, 108);
             this.playerShip.TabIndex = 3;
             this.playerShip.TabStop = false;
+            this.playerShip.Click += new System.EventHandler(this.playerShip_Click);
             // 
             // lifeIcon
             // 
@@ -165,7 +167,7 @@ namespace Invaders
             this.Controls.Add(this.startTip);
             this.Controls.Add(this.welcomeTitle);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(1437, 862);
@@ -184,9 +186,6 @@ namespace Invaders
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            //full screen
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
         #endregion

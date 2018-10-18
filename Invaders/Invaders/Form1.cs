@@ -194,6 +194,9 @@ namespace Invaders
             this.lifeIcon.Visible = true;
         }
 
+        private void playerShip_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
