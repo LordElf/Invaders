@@ -89,6 +89,11 @@ namespace Invaders
 
         /// <summary>发射炮弹</summary>
         shot,
+
+        /// <summary>
+        /// 暂停游戏
+        /// </summary>
+        pause,
     }
 
 
@@ -109,6 +114,7 @@ namespace Invaders
             gameKeyList.Add(new GameKey(Keys.A, Keys.Left, GameBehaviors.moveLeft));
             gameKeyList.Add(new GameKey(Keys.D, Keys.Right, GameBehaviors.moveRight));
             gameKeyList.Add(new GameKey(Keys.Space, GameBehaviors.shot));
+            gameKeyList.Add(new GameKey(Keys.Escape, Keys.P, GameBehaviors.pause));
 
         }
 

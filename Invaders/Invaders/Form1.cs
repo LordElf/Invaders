@@ -26,7 +26,8 @@ namespace Invaders
         {
             beginning,
             playing,
-            over
+            over,
+            pause,
         }
         Status status = Status.beginning;
 
@@ -42,7 +43,7 @@ namespace Invaders
         {
             this.Size = new Size(Options.formWidth, Options.formHeight);
             this.playerShip.Size = new Size(game.getPlayerWidth(), game.getPlayerHeight());
-            
+
 
             animationTimer.Start();
             gameTimer.Start();
@@ -123,10 +124,8 @@ namespace Invaders
         {
             if (this.status == Status.playing)
             {
-
                 foreach (Keys i in keysPressed)
                 {
-
                     switch (GameKeys.interpret(i))
                     {
                         case GameBehaviors.moveUp:
@@ -144,14 +143,37 @@ namespace Invaders
                         case GameBehaviors.shot:
                             //game.shot(e1);
                             break;
+                        case GameBehaviors.pause:
+                            gameTimer.Stop();
+                            animationTimer.Stop();
+                            status = Status.pause;
+                            break;
 
                         default:
                             break;
 
-                    } 
+                    }
                 }
             }
 
+            if (status == Status.pause)
+            {
+                foreach (Keys i in keysPressed)
+                {
+                    switch (GameKeys.interpret(i))
+                    {
+                        case GameBehaviors.pause:
+                            gameTimer.Start();
+                            animationTimer.Start();
+                            status = Status.playing;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+
+            }
             this.playerShip.Location = game.getPlayerPoisition();
 
             this.currentScore.Text = game.currentScore.ToString();
@@ -171,18 +193,24 @@ namespace Invaders
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
-            keysPressed.RemoveAll(k => k == e.KeyCode);
+
+                keysPressed.RemoveAll(k => k == e.KeyCode);
+
         }
 
         private void Form_Paint(object sender, PaintEventArgs e)
         {
-                
+
             stars.draw(e.Graphics);
         }
-        
+
         private void Form_KeyPress(object sender, KeyPressEventArgs e)
         {
-            welcomeShutDown();
+            if (status == Status.beginning)
+            {
+                welcomeShutDown();
+            }
+
         }
 
         private void welcomeShutDown()
