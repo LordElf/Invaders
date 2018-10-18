@@ -30,7 +30,7 @@ namespace Invaders
                 positionY -= this.speed;
             }
 
-            if (positionY >= 0 && positionY <= Options.height)
+            if (positionY >= 0 && positionY <= Options.formHeight)
                 return true;
             else return false;
         }

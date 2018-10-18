@@ -20,8 +20,8 @@ namespace Invaders
             /// <param name="random">由外部提供随机数以避免高并发操作造成随机数重合</param>
             public Star(Random random)
             {
-                point.X = random.Next(0, Options.width);
-                point.Y = random.Next(0, Options.height);
+                point.X = random.Next(Options.gameLeftBorder, Options.gameRightBorder);
+                point.Y = random.Next(0, Options.gameDownBorder);
             }
 
             /// <summary>
@@ -30,8 +30,8 @@ namespace Invaders
             /// <param name="random"></param>
             public void changePosition(Random random)
             {
-                point.X = random.Next(0, Options.width);
-                point.Y = random.Next(0, Options.height);
+                point.X = random.Next(Options.gameLeftBorder, Options.gameRightBorder);
+                point.Y = random.Next(0, Options.gameDownBorder);
             }
 
             public void draw(Graphics graphics)

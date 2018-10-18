@@ -56,35 +56,44 @@ namespace Invaders
         /// 舰船每帧可移动的距离，单位为像素
         /// </summary>
         protected int speed;
+
         /// <summary>
-        /// 舰船的飞行方向，用于传参给move函数
+        /// 飞船的移动
         /// </summary>
+        /// <param name="direction">移动方向，在同一命名空间定义</param>
         public void move(Direction direction)
         {
-            int currentLocationX = positionX;
-            int currentLocationY = positionY;
-            //TODO：加入边界检测
             if (direction == Direction.left)
             {
-                currentLocationX -= speed;
+                positionX -= speed;
+                if (positionX - shipWidth / 2 <= Options.gameLeftBorder)
+                {
+                    positionX = shipWidth / 2 + Options.gameLeftBorder;
+                }
             }
             if (direction == Direction.right)
             {
-                currentLocationX += speed;
+                positionX += speed;
+                if (positionX + shipWidth / 2 >= Options.gameRightBorder)
+                {
+                    positionX = Options.gameRightBorder - shipWidth / 2;
+                }
             }
             if (direction == Direction.up)
             {
-                currentLocationY -= speed;
+                positionY -= speed;
+                if (positionY - shipHeigh / 2 <= Options.gameUpBorder)
+                {
+                    positionY = shipHeigh / 2 + Options.gameUpBorder;
+                }
             }
             if (direction == Direction.down)
             {
-                currentLocationY += speed;
-            }
-            if(currentLocationX >= 0 && currentLocationX <= Options.width - this.shipWidth && 
-                currentLocationY >= 0 && currentLocationY <= Options.height - this.shipHeigh)
-            {
-                positionX = currentLocationX;
-                positionY = currentLocationY;
+                positionY += speed;
+                if (positionY + shipHeigh / 2 >= Options.gameDownBorder)
+                {
+                    positionY = Options.gameDownBorder - shipHeigh / 2;
+                }
             }
         }
     }
@@ -100,8 +109,8 @@ namespace Invaders
         public PlayerShip()
         {
             this.speed = 10;
-            this.shipWidth = Options.width / 10;
-            this.shipHeigh = Options.height / 10;
+            this.shipWidth = Options.formWidth / 10;
+            this.shipHeigh = Options.formHeight / 10;
         }
     }
 }

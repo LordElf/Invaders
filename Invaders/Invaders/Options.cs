@@ -27,14 +27,42 @@ namespace Invaders
         /// <summary>
         /// 窗体宽度
         /// </summary>
-        static public int width { get; } = Screen.PrimaryScreen.WorkingArea.Width;
+        static public int formWidth { get; } = Screen.PrimaryScreen.WorkingArea.Width;
+
+        /// <summary>
+        /// 游戏主体框的宽度
+        /// </summary>
+        static public int gameWidth { get; } = formHeight * 4 / 3;      //此处有bug，gameWidth会等于0
 
         /// <summary>
         /// 窗体高度
         /// </summary>
-        static public int height { get; } = Screen.PrimaryScreen.WorkingArea.Height;
+        static public int formHeight { get; } = Screen.PrimaryScreen.WorkingArea.Height;
 
-        //static public GameKeys gameKeys { get; } = GameKeys.instance;
+        /// <summary>
+        /// 游戏主体框的高度
+        /// </summary>
+        static public int gameHeight = formHeight;
+
+        /// <summary>
+        /// 游戏左边界X坐标
+        /// </summary>
+        static public int gameLeftBorder { get; } = (formWidth - gameWidth) / 2;    //由于gameWidth等于0，此处会有问题
+
+        /// <summary>
+        /// 游戏右边界X坐标
+        /// </summary>
+        static public int gameRightBorder { get; } = gameLeftBorder + gameWidth;
+
+        /// <summary>
+        /// 游戏上边界Y坐标
+        /// </summary>
+        static public int gameUpBorder { get; } = gameHeight / 10;      //预留分数显示位置
+
+        /// <summary>
+        /// 游戏下边界Y坐标
+        /// </summary>
+        static public int gameDownBorder { get; } = gameHeight;
     }
 
 
