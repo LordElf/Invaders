@@ -45,6 +45,10 @@ namespace Invaders
             playerShip.move(direction);
         }
 
+        /// <summary>
+        /// get the player's poisition
+        /// </summary>
+        /// <returns></returns>
         public Point getPlayerPoisition()
         {
             return new Point(playerShip.positionX, playerShip.positionY);
@@ -65,11 +69,11 @@ namespace Invaders
         /// <returns></returns>
         public void shot()
         { 
-            normalBullet normal = new normalBullet();
-            normal.bulletSize.Location = getPlayerGunPosition();
-            Gun gun = new railGun();
-            normal.direction = gun.direction;
-            gun.shot(normal);
+            NormalBullet normalBullet = new NormalBullet();
+            //normalBullet.bulletSize.Location = getPlayerGunPosition();
+            //Gun gun = new railGun();
+            //normalBullet.direction = gun.direction;
+            //gun.shot(normalBullet);
         }
     } 
 }

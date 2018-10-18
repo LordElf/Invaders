@@ -17,35 +17,33 @@ namespace Invaders
     {
         protected int speed;
         protected int injury;
-        public Rectangle bulletSize { get;  set; } 
-        public enum Direction
-        {
-            up,
-            down
-        }
+        //public Rectangle bulletSize { get;  set; } 
+        protected int positionX;
+        protected int positionY;
+        protected int height;
+        protected int width;
 
         public bool move(Direction direction)
         {
             if (direction == Direction.up)
             {
-                bulletSize.Location.Y -= this.speed;
+                positionY -= this.speed;
             }
 
-            if (this.bulletSize.Location.Y >= 0 && this.bulletSize.Location.Y <= Options.height)
+            if (positionY >= 0 && positionY <= Options.height)
                 return true;
             else return false;
         }
     }
 
-    class normalBullet : Bullet{
-        public normalBullet()
+    class NormalBullet : Bullet{
+        public NormalBullet()
         {
             this.speed = 30;
             this.injury = 1;
-            this.bulletSize.Height = 15;
-            this.bulletSize.Width = 5;
+            this.height = 15;
+            this.width = 5;
 
-            move(normalBullet.Direction);
         }
     }
 }

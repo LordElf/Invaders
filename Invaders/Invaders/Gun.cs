@@ -20,7 +20,7 @@ namespace Invaders
         public void shot(Bullet bullet, PaintEventArgs e)
         {
             Pen myBrush = new Pen(Color.Yellow, 3);
-            e.Graphics.DrawRectangle(myBrush, bullet.size);
+            //e.Graphics.DrawRectangle(myBrush, bullet.size);
             myBrush.Dispose();
         }
         enum direction
@@ -29,7 +29,7 @@ namespace Invaders
             down
         }
 
-        internal void shot(normalBullet normal, PaintEventArgs paintEventArgs, object e)
+        internal void shot(NormalBullet normal, PaintEventArgs paintEventArgs, object e)
         {
             throw new NotImplementedException();
         }
