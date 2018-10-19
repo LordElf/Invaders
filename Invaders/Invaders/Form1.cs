@@ -41,7 +41,9 @@ namespace Invaders
 
         private void Form_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(Options.formWidth, Options.formHeight);
+            this.Size           = new Size(Options.formWidth, Options.formHeight);
+            this.MaximumSize    = new Size(Options.formWidth, Options.formHeight);
+            this.MinimumSize    = new Size(Options.formWidth, Options.formHeight);
             this.playerShip.Size = new Size(game.getPlayerWidth(), game.getPlayerHeight());
 
 

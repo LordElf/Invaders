@@ -88,9 +88,9 @@ namespace Invaders
             this.welcomeTitle.BackColor = System.Drawing.Color.Transparent;
             this.welcomeTitle.Image = global::Invaders.Properties.Resources.welcomeTitle;
             this.welcomeTitle.InitialImage = null;
-            this.welcomeTitle.Location = new System.Drawing.Point(427, 72);
+            this.welcomeTitle.Location = new System.Drawing.Point(426, 72);
             this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(426, 217);
+            this.welcomeTitle.Size = new System.Drawing.Size(427, 240);
             this.welcomeTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.welcomeTitle.TabIndex = 0;
             this.welcomeTitle.TabStop = false;
@@ -111,13 +111,8 @@ namespace Invaders
             this.playerShip.BackColor = System.Drawing.Color.Transparent;
             this.playerShip.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
             this.playerShip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-<<<<<<< HEAD
             this.playerShip.Location = new System.Drawing.Point(754, 678);
             this.playerShip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.playerShip.Location = new System.Drawing.Point(601, 542);
-            this.playerShip.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 566805ae81afeb19479c01f3fa0c0d9c9e654791
             this.playerShip.Name = "playerShip";
             this.playerShip.Size = new System.Drawing.Size(0, 0);
             this.playerShip.TabIndex = 3;
@@ -152,7 +147,6 @@ namespace Invaders
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.ControlBox = false;
             this.Controls.Add(this.playerLife);
             this.Controls.Add(this.lifeIcon);
             this.Controls.Add(this.playerShip);
@@ -160,16 +154,11 @@ namespace Invaders
             this.Controls.Add(this.startTip);
             this.Controls.Add(this.welcomeTitle);
             this.DoubleBuffered = true;
-<<<<<<< HEAD
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1437, 862);
-=======
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
->>>>>>> 566805ae81afeb19479c01f3fa0c0d9c9e654791
             this.Name = "Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "0";

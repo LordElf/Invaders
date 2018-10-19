@@ -63,7 +63,7 @@ namespace Invaders
         /// <param name="direction">移动方向，在同一命名空间定义</param>
         public void move(Direction direction)
         {
-<<<<<<< HEAD
+
             /*created by Shawn
             int currentPositionX = positionX, currentPositionY = positionY;
             switch (direction)
@@ -92,13 +92,13 @@ namespace Invaders
             }
             */
             
-=======
-            int leftBorderMagicNum  = 33;       //左边界的神奇误差
-            int rightBorderMagicNum = 15;       //右边界的神奇误差
-            int upBorderMagicNum    = 15;       //上边界有计算误差，因为根本没有算分数等元素的高度
+
+            int leftBorderMagicNum  = 0;       //左边界的神奇误差
+            int rightBorderMagicNum = -15;       //右边界的神奇误差
+            int upBorderMagicNum    = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
             int downBorderMagicNum  = 35;       //下边界的神奇误差
 
->>>>>>> 566805ae81afeb19479c01f3fa0c0d9c9e654791
+
             if (direction == Direction.left)
             {
                 positionX -= speed;
@@ -118,9 +118,9 @@ namespace Invaders
             if (direction == Direction.up)
             {
                 positionY -= speed;
-                if (positionY - heigh / 2 <= Options.gameUpBorder - upBorderMagicNum)
+                if (positionY <= Options.gameUpBorder - upBorderMagicNum)
                 {
-                    positionY = heigh / 2 + Options.gameUpBorder - upBorderMagicNum;
+                    positionY = Options.gameUpBorder - upBorderMagicNum;
                 }
             }
             if (direction == Direction.down)
@@ -146,8 +146,8 @@ namespace Invaders
         public PlayerShip()
         {
             this.speed = 10;
-            this.width = Options.formWidth / 10;
-            this.heigh = Options.formHeight / 10;
+            this.width = Options.formWidth / 16;
+            this.heigh = width;    
             this.positionX = (Options.gameRightBorder - Options.gameLeftBorder) / 2 - width + 55; //神奇误差，如上
             this.positionY = Options.gameDownBorder - heigh - 35;
         }
