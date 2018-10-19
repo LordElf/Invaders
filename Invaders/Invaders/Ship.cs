@@ -152,4 +152,5 @@ namespace Invaders
             this.positionY = Options.gameDownBorder - heigh - 35;
         }
     }
+
 }
