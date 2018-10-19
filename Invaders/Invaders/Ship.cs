@@ -148,7 +148,7 @@ namespace Invaders
             this.speed = 10;
             this.width = Options.formWidth / 16;
             this.heigh = width;    
-            this.positionX = (Options.gameRightBorder - Options.gameLeftBorder) / 2 - width + 55; //神奇误差，如上
+            this.positionX = (Options.gameRightBorder - Options.gameLeftBorder) / 2 - width + 30; //神奇误差，如上
             this.positionY = Options.gameDownBorder - heigh - 35;
         }
     }
