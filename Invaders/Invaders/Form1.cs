@@ -145,11 +145,8 @@ namespace Invaders
                         case GameBehaviors.shot:
                             //game.shot(e1);
                             break;
-                        case GameBehaviors.pause:
-                            gameTimer.Stop();
-                            animationTimer.Stop();
-                            status = Status.pause;
-                            break;
+
+
 
                         default:
                             break;
@@ -158,24 +155,7 @@ namespace Invaders
                 }
             }
 
-            if (status == Status.pause)
-            {
-                foreach (Keys i in keysPressed)
-                {
-                    switch (GameKeys.interpret(i))
-                    {
-                        case GameBehaviors.pause:
-                            gameTimer.Start();
-                            animationTimer.Start();
-                            status = Status.playing;
-                            break;
 
-                        default:
-                            break;
-                    }
-                }
-
-            }
             this.playerShip.Location = game.getPlayerPoisition();
 
             this.currentScore.Text = game.currentScore.ToString();
@@ -186,6 +166,25 @@ namespace Invaders
         static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
+
+            if (status == Status.playing)
+            {
+                if (GameKeys.interpret(e.KeyCode) == GameBehaviors.pause)
+                {
+                    gameTimer.Stop();
+                    animationTimer.Stop();
+                    status = Status.pause;
+                }
+            }
+            else if (status == Status.pause)
+            {
+                if (GameKeys.interpret(e.KeyCode) == GameBehaviors.pause)
+                {
+                    gameTimer.Start();
+                    animationTimer.Start();
+                    status = Status.playing;
+                }
+            }
             if (!keysPressed.Contains(e.KeyCode))
             {
                 keysPressed.Add(e.KeyCode);
