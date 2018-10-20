@@ -96,5 +96,16 @@ namespace Invaders
         {
             bullets.AddRange(playerShip.shot());
         }
+
+        /// <summary>
+        /// 绘制所有游戏对象
+        /// </summary>
+        public void draw(Graphics graphics)
+        {
+            foreach (Bullet i in bullets)
+            {
+                i.draw(graphics);
+            }
+        }
     } 
 }

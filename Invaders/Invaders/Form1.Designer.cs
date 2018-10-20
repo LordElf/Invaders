@@ -52,11 +52,9 @@ namespace Invaders
             this.lifeIcon = new System.Windows.Forms.PictureBox();
             this.playerShip = new System.Windows.Forms.PictureBox();
             this.welcomeTitle = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerShip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // animationTimer
@@ -143,24 +141,12 @@ namespace Invaders
             this.welcomeTitle.TabIndex = 0;
             this.welcomeTitle.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Invaders.Properties.Resources.normalBullet;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(998, 167);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 51);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.playerLife);
             this.Controls.Add(this.lifeIcon);
             this.Controls.Add(this.playerShip);
@@ -184,7 +170,6 @@ namespace Invaders
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerShip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +185,6 @@ namespace Invaders
         private System.Windows.Forms.PictureBox playerShip;
         private System.Windows.Forms.PictureBox lifeIcon;
         private System.Windows.Forms.Label playerLife;
-        private PictureBox pictureBox1;
     }
 }
 
