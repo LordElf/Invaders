@@ -94,6 +94,11 @@ namespace Invaders
         /// 暂停游戏
         /// </summary>
         pause,
+
+        /// <summary>
+        /// 退出游戏
+        /// </summary>
+        quit,
     }
 
 
@@ -113,8 +118,9 @@ namespace Invaders
             gameKeyList.Add(new GameKey(Keys.S, Keys.Down, GameBehaviors.moveDown));
             gameKeyList.Add(new GameKey(Keys.A, Keys.Left, GameBehaviors.moveLeft));
             gameKeyList.Add(new GameKey(Keys.D, Keys.Right, GameBehaviors.moveRight));
-            gameKeyList.Add(new GameKey(Keys.Space, GameBehaviors.shot));
+            gameKeyList.Add(new GameKey(Keys.Space, Keys.None, GameBehaviors.shot));
             gameKeyList.Add(new GameKey(Keys.Escape, Keys.P, GameBehaviors.pause));
+            gameKeyList.Add(new GameKey(Keys.Q, Keys.None, GameBehaviors.pause));
 
         }
 
@@ -131,12 +137,12 @@ namespace Invaders
                 this.behavior = behavior;
             }
 
-            public GameKey(Keys firstKey, GameBehaviors behaviors)
-            {
-                this.firstKey = firstKey;
-                this.secondKey = Keys.None; //None不会引发KeyDown事件
-                this.behavior = behavior;
-            }
+            //public GameKey(Keys firstKey, GameBehaviors behaviors)
+            //{
+            //    this.firstKey = firstKey;
+            //    this.secondKey = Keys.None; //None不会引发KeyDown事件
+            //    this.behavior = behavior;
+            //}
         }
         static List<GameKey> gameKeyList = new List<GameKey>();
 

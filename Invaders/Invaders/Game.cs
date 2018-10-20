@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -72,14 +73,20 @@ namespace Invaders
             return playerShip.heigh;
         }
 
+        //It's useless
+        ///// <summary>
+        ///// get the gun location
+        ///// </summary>
+        ///// <returns></returns>
+        //public Point getPlayerGunPosition()
+        //{
+        //    return new Point(playerShip.positionX + playerShip.width / 2, playerShip.positionY + 5);
+        //}
+
         /// <summary>
-        /// get the gun location
+        /// 游戏内的所有子弹，用以交由form绘制
         /// </summary>
-        /// <returns></returns>
-        public Point getPlayerGunPosition()
-        {
-            return new Point(playerShip.positionX + playerShip.width / 2, playerShip.positionY + 5);
-        }
+        public List<Bullet> bullets { get; } = new List<Bullet>();
 
         /// <summary>
         /// shot a bullet
@@ -87,8 +94,7 @@ namespace Invaders
         /// <returns></returns>
         public void shot()
         {
-            Gun gun = new normalGun();
-
+            bullets.AddRange(playerShip.shot());
         }
     } 
 }

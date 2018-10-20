@@ -13,7 +13,7 @@ namespace Invaders
     /// <remarks>
     /// created on 10.17 14：00 by Shawn
     /// </remarks>
-    abstract class Bullet 
+    abstract public class Bullet 
     {
         protected int speed;
         protected int injury;
