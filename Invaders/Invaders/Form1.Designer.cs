@@ -47,14 +47,14 @@ namespace Invaders
             this.animationTimer = new System.Windows.Forms.Timer(this.components);
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.startTip = new System.Windows.Forms.Label();
-            this.welcomeTitle = new System.Windows.Forms.PictureBox();
             this.currentScore = new System.Windows.Forms.Label();
-            this.playerShip = new System.Windows.Forms.PictureBox();
-            this.lifeIcon = new System.Windows.Forms.PictureBox();
             this.playerLife = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerShip)).BeginInit();
+            this.lifeIcon = new System.Windows.Forms.PictureBox();
+            this.playerShip = new System.Windows.Forms.PictureBox();
+            this.welcomeTitle = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerShip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // animationTimer
@@ -80,21 +80,6 @@ namespace Invaders
             this.startTip.Text = "Press anykey to start\r\n";
             this.startTip.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // welcomeTitle
-            // 
-            this.welcomeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.welcomeTitle.BackColor = System.Drawing.Color.Transparent;
-            this.welcomeTitle.Image = global::Invaders.Properties.Resources.welcomeTitle;
-            this.welcomeTitle.InitialImage = null;
-            this.welcomeTitle.Location = new System.Drawing.Point(426, 72);
-            this.welcomeTitle.Name = "welcomeTitle";
-            this.welcomeTitle.Size = new System.Drawing.Size(427, 240);
-            this.welcomeTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.welcomeTitle.TabIndex = 0;
-            this.welcomeTitle.TabStop = false;
-            // 
             // currentScore
             // 
             this.currentScore.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -105,6 +90,28 @@ namespace Invaders
             this.currentScore.Name = "currentScore";
             this.currentScore.Size = new System.Drawing.Size(222, 46);
             this.currentScore.TabIndex = 2;
+            // 
+            // playerLife
+            // 
+            this.playerLife.AutoSize = true;
+            this.playerLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.playerLife.ForeColor = System.Drawing.Color.Azure;
+            this.playerLife.Location = new System.Drawing.Point(1168, 50);
+            this.playerLife.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.playerLife.Name = "playerLife";
+            this.playerLife.Size = new System.Drawing.Size(0, 29);
+            this.playerLife.TabIndex = 5;
+            // 
+            // lifeIcon
+            // 
+            this.lifeIcon.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
+            this.lifeIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lifeIcon.Location = new System.Drawing.Point(1113, 29);
+            this.lifeIcon.Margin = new System.Windows.Forms.Padding(2);
+            this.lifeIcon.Name = "lifeIcon";
+            this.lifeIcon.Size = new System.Drawing.Size(50, 60);
+            this.lifeIcon.TabIndex = 4;
+            this.lifeIcon.TabStop = false;
             // 
             // playerShip
             // 
@@ -119,27 +126,20 @@ namespace Invaders
             this.playerShip.TabStop = false;
             this.playerShip.Click += new System.EventHandler(this.playerShip_Click);
             // 
-            // lifeIcon
+            // welcomeTitle
             // 
-            this.lifeIcon.BackgroundImage = global::Invaders.Properties.Resources.playerShip;
-            this.lifeIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.lifeIcon.Location = new System.Drawing.Point(1113, 29);
-            this.lifeIcon.Margin = new System.Windows.Forms.Padding(2);
-            this.lifeIcon.Name = "lifeIcon";
-            this.lifeIcon.Size = new System.Drawing.Size(50, 60);
-            this.lifeIcon.TabIndex = 4;
-            this.lifeIcon.TabStop = false;
-            // 
-            // playerLife
-            // 
-            this.playerLife.AutoSize = true;
-            this.playerLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.playerLife.ForeColor = System.Drawing.Color.Azure;
-            this.playerLife.Location = new System.Drawing.Point(1168, 50);
-            this.playerLife.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.playerLife.Name = "playerLife";
-            this.playerLife.Size = new System.Drawing.Size(0, 29);
-            this.playerLife.TabIndex = 5;
+            this.welcomeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.welcomeTitle.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeTitle.Image = global::Invaders.Properties.Resources.welcomeTitle;
+            this.welcomeTitle.InitialImage = null;
+            this.welcomeTitle.Location = new System.Drawing.Point(426, 72);
+            this.welcomeTitle.Name = "welcomeTitle";
+            this.welcomeTitle.Size = new System.Drawing.Size(427, 240);
+            this.welcomeTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.welcomeTitle.TabIndex = 0;
+            this.welcomeTitle.TabStop = false;
             // 
             // Form
             // 
@@ -167,9 +167,9 @@ namespace Invaders
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerShip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerShip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welcomeTitle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

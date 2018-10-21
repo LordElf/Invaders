@@ -21,6 +21,7 @@ namespace Invaders
         private Game game = Game.instance;
         private GameKeys gameKeys = GameKeys.instance;
 
+
         //记录界面的状态
         private enum Status
         {
@@ -41,11 +42,8 @@ namespace Invaders
 
         private void Form_Load(object sender, EventArgs e)
         {
-            this.Size           = new Size(Options.formWidth, Options.formHeight);
-            this.MaximumSize    = new Size(Options.formWidth, Options.formHeight);
-            this.MinimumSize    = new Size(Options.formWidth, Options.formHeight);
-            this.playerShip.Size = new Size(game.getPlayerWidth(), game.getPlayerHeight());
-
+            this.Size               = new Size(Options.formWidth, Options.formHeight);
+            this.playerShip.Size    = new Size(game.getPlayerWidth(), game.getPlayerHeight());
 
             animationTimer.Start();
             gameTimer.Start();
@@ -155,9 +153,8 @@ namespace Invaders
                 }
             }
 
-
+            
             this.playerShip.Location = game.getPlayerPoisition();
-
             this.currentScore.Text = game.currentScore.ToString();
             this.playerLife.Text = "X" + game.getPlayerLife().ToString();
             this.Refresh();
@@ -166,7 +163,10 @@ namespace Invaders
         static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (GameKeys.interpret(e.KeyCode) == GameBehaviors.quit)
+            {
+                System.Environment.Exit(0);
+            }
             if (status == Status.playing)
             {
                 if (GameKeys.interpret(e.KeyCode) == GameBehaviors.pause)
@@ -201,8 +201,8 @@ namespace Invaders
 
         private void Form_Paint(object sender, PaintEventArgs e)
         {
-
             stars.draw(e.Graphics);
+            game.draw(e.Graphics);
         }
 
         private void Form_KeyPress(object sender, KeyPressEventArgs e)

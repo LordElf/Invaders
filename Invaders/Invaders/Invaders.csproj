@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +55,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Gun.cs" />
+    <Compile Include="IDraw.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\playerShip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\normalBullet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

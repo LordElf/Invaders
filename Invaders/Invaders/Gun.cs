@@ -30,8 +30,11 @@ namespace Invaders
             down
         }
 
-        internal void shot()
+        public List<Bullet> shot()
         {
+            List<Bullet> bullets = new List<Bullet>();
+            //TODO:生成新子弹
+            return bullets;
         }
     }
 

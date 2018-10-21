@@ -57,6 +57,14 @@ namespace Invaders
         /// </summary>
         protected int speed;
 
+        int leftBorderMagicNum = 0;       //左边界的神奇误差
+        int rightBorderMagicNum = 0;       //右边界的神奇误差
+        int upBorderMagicNum = 0;       //上边界有计算误差，因为根本没有算分数等元素的高度
+        int downBorderMagicNum = 0;       //下边界的神奇误差
+
+
+
+
         /// <summary>
         /// 飞船的移动
         /// </summary>
@@ -93,10 +101,7 @@ namespace Invaders
             */
             
 
-            int leftBorderMagicNum  = 0;       //左边界的神奇误差
-            int rightBorderMagicNum = -15;       //右边界的神奇误差
-            int upBorderMagicNum    = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
-            int downBorderMagicNum  = 35;       //下边界的神奇误差
+
 
 
             if (direction == Direction.left)
@@ -133,6 +138,13 @@ namespace Invaders
             }
             
         }
+
+        /// <summary>
+        /// 遍历所有gun并执行其shot()方法
+        /// </summary>
+        /// <returns>由所有shot()方法返回的新的Bullet的引用</returns>
+        abstract public List<Bullet> shot();
+
     }
 
     /// <summary>
@@ -140,6 +152,12 @@ namespace Invaders
     /// </summary>
     public class PlayerShip : Ship
     {
+        int leftBorderMagicNum = 0;       //左边界的神奇误差
+        int rightBorderMagicNum = -15;       //右边界的神奇误差
+        int upBorderMagicNum = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
+        int downBorderMagicNum = 35;       //下边界的神奇误差
+
+
         /// <summary>
         /// the player's ship
         /// </summary>
@@ -150,6 +168,29 @@ namespace Invaders
             this.heigh = width;    
             this.positionX = (Options.gameRightBorder - Options.gameLeftBorder) / 2 - width + 30; //神奇误差，如上
             this.positionY = Options.gameDownBorder - heigh - 35;
+            leftBorderMagicNum = 0;       //左边界的神奇误差
+            rightBorderMagicNum = -15;       //右边界的神奇误差
+            upBorderMagicNum = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
+            downBorderMagicNum = 35;       //下边界的神奇误差
+
+            guns.Add(new normalGun());
+        }
+
+        List<Gun> guns = new List<Gun>();
+
+        /// <summary>
+        /// 遍历所有gun并执行其shot()方法
+        /// </summary>
+        /// <returns>由所有shot()方法返回的新的Bullet的引用</returns>
+        public override List<Bullet> shot()
+        {
+            List<Bullet> bullets = new List<Bullet>();
+            foreach(Gun g in guns)
+            {
+                bullets.AddRange(g.shot());
+            }
+            return bullets;
         }
     }
+
 }
