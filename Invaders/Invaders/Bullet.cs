@@ -27,7 +27,11 @@ namespace Invaders
         {
             if (direction == Direction.up)
             {
-                positionY -= this.speed;
+                positionY -= speed;
+            }
+            else if(direction == Direction.down)
+            {
+                positionY += speed;
             }
 
             if (positionY >= 0 && positionY <= Options.formHeight)
