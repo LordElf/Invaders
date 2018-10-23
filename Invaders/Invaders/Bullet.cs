@@ -73,13 +73,13 @@ namespace Invaders
     }
 
     class NormalBullet : Bullet{
-        public NormalBullet()
+        public NormalBullet(int positionX, int positionY)
         {
+
             this.speed = 30;
             this.injury = 1;
             this.height = 15;
             this.width = 5;
-
         }
     }
 }

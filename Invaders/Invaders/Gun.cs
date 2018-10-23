@@ -18,21 +18,24 @@ namespace Invaders
     {
         // time interval between two shots (ms)
         protected int shottingInterval;
-        public void shot(Bullet bullet, PaintEventArgs e)
+
+        //枪口位置，即子弹生成的坐标点（子弹左上角）
+        protected int positionX;
+        protected int positionY;
+
+        /// <summary>
+        /// 由上级的Ship的move（）调用，移动的同时移动枪口位置，即子弹生成的坐标点（子弹左上角）
+        /// </summary>
+        /// <param name="direction">移动的方向</param>
+        /// <param name="distance">移动的距离（像素）</param>
+        public void move(Direction direction, int distance)
         {
-            Pen myBrush = new Pen(Color.Yellow, 3);
-            //e.Graphics.DrawRectangle(myBrush, bullet.size);
-            myBrush.Dispose();
-        }
-        enum direction
-        {
-            up, 
-            down
+            
         }
 
-        public List<Bullet> shot()
+        public Bullet shot()
         {
-            List<Bullet> bullets = new List<Bullet>();
+            Bullet bullets = new NormalBullet(positionX, positionY);
             //TODO:生成新子弹
             return bullets;
         }

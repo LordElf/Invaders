@@ -57,10 +57,10 @@ namespace Invaders
         /// </summary>
         protected int speed;
 
-        int leftBorderMagicNum = 0;       //左边界的神奇误差
-        int rightBorderMagicNum = 0;       //右边界的神奇误差
-        int upBorderMagicNum = 0;       //上边界有计算误差，因为根本没有算分数等元素的高度
-        int downBorderMagicNum = 0;       //下边界的神奇误差
+        protected int leftBorderMagicNum = 0;       //左边界的神奇误差
+        protected int rightBorderMagicNum = 0;       //右边界的神奇误差
+        protected int upBorderMagicNum = 0;       //上边界有计算误差，因为根本没有算分数等元素的高度
+        protected int downBorderMagicNum = 0;       //下边界的神奇误差
 
 
 
@@ -152,12 +152,6 @@ namespace Invaders
     /// </summary>
     public class PlayerShip : Ship
     {
-        int leftBorderMagicNum = 0;       //左边界的神奇误差
-        int rightBorderMagicNum = -15;       //右边界的神奇误差
-        int upBorderMagicNum = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
-        int downBorderMagicNum = 35;       //下边界的神奇误差
-
-
         /// <summary>
         /// the player's ship
         /// </summary>
@@ -187,7 +181,7 @@ namespace Invaders
             List<Bullet> bullets = new List<Bullet>();
             foreach(Gun g in guns)
             {
-                bullets.AddRange(g.shot());
+                bullets.Add(g.shot());
             }
             return bullets;
         }

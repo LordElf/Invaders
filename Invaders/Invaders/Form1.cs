@@ -163,10 +163,7 @@ namespace Invaders
         static List<Keys> keysPressed = new List<Keys>();
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if (GameKeys.interpret(e.KeyCode) == GameBehaviors.quit)
-            {
-                System.Environment.Exit(0);
-            }
+
             if (status == Status.playing)
             {
                 if (GameKeys.interpret(e.KeyCode) == GameBehaviors.pause)
@@ -194,8 +191,15 @@ namespace Invaders
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
-
-                keysPressed.RemoveAll(k => k == e.KeyCode);
+            if (status == Status.beginning)
+            {
+                welcomeShutDown();
+            }
+            if (GameKeys.interpret(e.KeyCode) == GameBehaviors.quit)
+            {
+                System.Environment.Exit(0);
+            }
+            keysPressed.RemoveAll(k => k == e.KeyCode);
 
         }
 
@@ -207,10 +211,6 @@ namespace Invaders
 
         private void Form_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (status == Status.beginning)
-            {
-                welcomeShutDown();
-            }
 
         }
 
