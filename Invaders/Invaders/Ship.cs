@@ -62,7 +62,10 @@ namespace Invaders
         protected int upBorderMagicNum = 0;       //上边界有计算误差，因为根本没有算分数等元素的高度
         protected int downBorderMagicNum = 0;       //下边界的神奇误差
 
-
+        /// <summary>
+        /// 舰船上所有的枪
+        /// </summary>
+        protected List<Gun> guns = new List<Gun>();
 
 
         /// <summary>
@@ -72,6 +75,7 @@ namespace Invaders
         public void move(Direction direction)
         {
 
+            #region 备用代码
             /*created by Shawn
             int currentPositionX = positionX, currentPositionY = positionY;
             switch (direction)
@@ -99,42 +103,67 @@ namespace Invaders
                 positionY = currentPositionY;
             }
             */
+            #endregion
+
+
+            int tempPositionX = positionX;
+            int tempPositionY = positionY;
+            ///枪的偏移量
+            int gunsOffsetX = 0;
+            int gunsOffsetY = 0;
             
-
-
-
-
             if (direction == Direction.left)
             {
-                positionX -= speed;
-                if (positionX <= Options.gameLeftBorder - leftBorderMagicNum)
+                tempPositionX -= speed;
+                if (tempPositionX <= Options.gameLeftBorder - leftBorderMagicNum)
                 {
-                    positionX = Options.gameLeftBorder - leftBorderMagicNum;
+                    tempPositionX = Options.gameLeftBorder - leftBorderMagicNum;
                 }
+                gunsOffsetX = tempPositionX - positionX;
             }
             if (direction == Direction.right)
             {
-                positionX += speed;
-                if (positionX + width >= Options.gameRightBorder + rightBorderMagicNum)
+                tempPositionX += speed;
+                if (tempPositionX + width >= Options.gameRightBorder + rightBorderMagicNum)
                 {
-                    positionX = Options.gameRightBorder - width + rightBorderMagicNum;
+                    tempPositionX = Options.gameRightBorder - width + rightBorderMagicNum;
                 }
+                gunsOffsetX = tempPositionX - positionX;
             }
             if (direction == Direction.up)
             {
-                positionY -= speed;
-                if (positionY <= Options.gameUpBorder - upBorderMagicNum)
+                tempPositionY -= speed;
+                if (tempPositionY <= Options.gameUpBorder - upBorderMagicNum)
                 {
-                    positionY = Options.gameUpBorder - upBorderMagicNum;
+                    tempPositionY = Options.gameUpBorder - upBorderMagicNum;
                 }
+                gunsOffsetY = tempPositionY - positionY;
             }
             if (direction == Direction.down)
             {
-                positionY += speed;
-                if (positionY + heigh >= Options.gameDownBorder - downBorderMagicNum)
+                tempPositionY += speed;
+                if (tempPositionY + heigh >= Options.gameDownBorder - downBorderMagicNum)
                 {
-                    positionY = Options.gameDownBorder - heigh - downBorderMagicNum;
+                    tempPositionY = Options.gameDownBorder - heigh - downBorderMagicNum;
                 }
+                gunsOffsetY = tempPositionY - positionY;
+            }
+
+            positionX = tempPositionX;
+            positionY = tempPositionY;
+
+            int Offset;
+            if (direction == Direction.up || direction == Direction.down)
+            {
+                Offset = gunsOffsetY;
+            }
+            else
+            {
+                Offset = gunsOffsetX;
+            }
+            foreach(Gun g in guns)
+            {
+                g.move(direction, Offset);
             }
             
         }
@@ -170,7 +199,7 @@ namespace Invaders
             guns.Add(new normalGun());
         }
 
-        List<Gun> guns = new List<Gun>();
+
 
         /// <summary>
         /// 遍历所有gun并执行其shot()方法

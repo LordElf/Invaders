@@ -14,7 +14,7 @@ namespace Invaders
     /// <remarks>
     /// created on 10/17/2018 20:09 by Shawn 
     /// </remarks>
-    abstract class Gun
+    abstract public class Gun
     {
         // time interval between two shots (ms)
         protected int shottingInterval;
