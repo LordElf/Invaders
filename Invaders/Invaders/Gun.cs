@@ -30,11 +30,36 @@ namespace Invaders
         /// <param name="distance">移动的距离（像素）</param>
         public void move(Direction direction, int distance)
         {
-            
+            if (direction == Direction.up)
+            {
+                positionY -= distance;
+            }
+            if (direction == Direction.down)
+            {
+                positionY += distance;
+            }
+            if (direction == Direction.left)
+            {
+                positionX -= distance;
+            }
+            if (direction == Direction.right)
+            {
+                positionX += distance;
+            }
+        }
+
+        Timer timer = new Timer();
+        bool isShotting;
+
+        public Gun()
+        {
+            timer.Start();
         }
 
         public Bullet shot()
         {
+            
+
             Bullet bullets = new NormalBullet(positionX, positionY);
             //TODO:生成新子弹
             return bullets;
@@ -51,8 +76,10 @@ namespace Invaders
 
     class normalGun : Gun
     {
-        public normalGun()
+        public normalGun(int positionX, int positionY)
         {
+            this.positionX = positionX;
+            this.positionY = positionY;
             this.shottingInterval = 300;
         }
     }

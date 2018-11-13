@@ -18,7 +18,7 @@ namespace Invaders
 
 
 
-
+    
     static class Options
     {
         //TODO:Options应有对应配置文件
@@ -120,7 +120,7 @@ namespace Invaders
             gameKeyList.Add(new GameKey(Keys.D, Keys.Right, GameBehaviors.moveRight));
             gameKeyList.Add(new GameKey(Keys.Space, Keys.None, GameBehaviors.shot));
             gameKeyList.Add(new GameKey(Keys.Escape, Keys.P, GameBehaviors.pause));
-            gameKeyList.Add(new GameKey(Keys.Q, Keys.None, GameBehaviors.pause));
+            gameKeyList.Add(new GameKey(Keys.Q, Keys.None, GameBehaviors.quit));
 
         }
 
@@ -166,5 +166,12 @@ namespace Invaders
             
         }
     }
+
+    static class FilePath
+    {
+        public const string ART_NORMAL_BULLET = 
+            @"D:\Projects\Visual Studio项目\Invaders\Art\normalBullet.png";
+    }
+
 
 }

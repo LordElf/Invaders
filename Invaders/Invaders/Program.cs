@@ -14,6 +14,8 @@ namespace Invaders
     /// </remarks>
     static class Program
     {
+        static public Form form = new Form();
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -21,8 +23,7 @@ namespace Invaders
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Form form = new Form();
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(form);
         }
     }

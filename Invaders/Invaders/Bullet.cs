@@ -68,14 +68,26 @@ namespace Invaders
         /// <param name="graphics"></param>
         public void draw(Graphics graphics)
         {
-            ;
+            //graphics.DrawImage(Image.FromFile(FilePath.ART_NORMAL_BULLET) , positionX, positionY, 9, 16);
+            /*以上代码导致卡顿，原因不明*/
+
+            /*现改为调用from对外接口生成新的pictureBox*/
+            //System.Windows.Forms.PictureBox bullet = new System.Windows.Forms.PictureBox();
+            //bullet.BackColor = System.Drawing.Color.Transparent;
+            //bullet.BackgroundImage = global::Invaders.Properties.Resources.normalBullet;
+            //bullet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            //bullet.Size = new Size(9, 16);
+            //bullet.Location = new System.Drawing.Point(positionX, positionY);
+            //Program.form.Controls.Add(bullet);
+            /*以上代码导致更严重的卡顿，我要疯了*/
         }
     }
 
     class NormalBullet : Bullet{
         public NormalBullet(int positionX, int positionY)
         {
-
+            this.positionX = positionX;
+            this.positionY = positionY;
             this.speed = 30;
             this.injury = 1;
             this.height = 15;

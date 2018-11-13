@@ -196,7 +196,7 @@ namespace Invaders
             upBorderMagicNum = -15;       //上边界有计算误差，因为根本没有算分数等元素的高度
             downBorderMagicNum = 35;       //下边界的神奇误差
 
-            guns.Add(new normalGun());
+            guns.Add(new normalGun(positionX, positionY));
         }
 
 

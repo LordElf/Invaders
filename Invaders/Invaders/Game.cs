@@ -104,7 +104,7 @@ namespace Invaders
         {
             foreach (Bullet i in bullets)
             {
-                i.draw(graphics);
+               i.draw(graphics);
             }
         }
     } 
