@@ -32,12 +32,14 @@ namespace Invaders
         }
         Status status = Status.beginning;
 
+
         /// <summary>
         /// Form的构造函数
         /// </summary>
         public Form()
         {
             InitializeComponent();
+
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -157,7 +159,11 @@ namespace Invaders
             this.playerShip.Location = game.getPlayerPoisition();
             this.currentScore.Text = game.currentScore.ToString();
             this.playerLife.Text = "X" + game.getPlayerLife().ToString();
+
+
             this.Refresh();
+
+
         }
 
         static List<Keys> keysPressed = new List<Keys>();

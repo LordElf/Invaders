@@ -27,19 +27,19 @@ namespace Invaders
         /// <summary>
         /// 子弹x轴坐标
         /// </summary>
-        protected int positionX;
+        public int positionX { get; set; }
         /// <summary>
         /// 子弹Y轴坐标
         /// </summary>
-        protected int positionY;
+        public int positionY { get; set; }
         /// <summary>
         /// 子弹碰撞箱的高度
         /// </summary>
-        protected int height;
+        public int height { get; set; }
         /// <summary>
         /// 子弹碰撞箱的宽度
         /// </summary>
-        protected int width;
+        public int width { get; set; }
 
         /// <summary>
         /// 子弹的移动，//不对啊，这个不是我写的啊
@@ -68,18 +68,7 @@ namespace Invaders
         /// <param name="graphics"></param>
         public void draw(Graphics graphics)
         {
-            //graphics.DrawImage(Image.FromFile(FilePath.ART_NORMAL_BULLET) , positionX, positionY, 9, 16);
-            /*以上代码导致卡顿，原因不明*/
-
-            /*现改为调用from对外接口生成新的pictureBox*/
-            //System.Windows.Forms.PictureBox bullet = new System.Windows.Forms.PictureBox();
-            //bullet.BackColor = System.Drawing.Color.Transparent;
-            //bullet.BackgroundImage = global::Invaders.Properties.Resources.normalBullet;
-            //bullet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            //bullet.Size = new Size(9, 16);
-            //bullet.Location = new System.Drawing.Point(positionX, positionY);
-            //Program.form.Controls.Add(bullet);
-            /*以上代码导致更严重的卡顿，我要疯了*/
+            graphics.DrawImage(Image.FromFile(FilePath.ART_NORMAL_BULLET), positionX, positionY, 9, 16);
         }
     }
 

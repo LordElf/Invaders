@@ -48,31 +48,36 @@ namespace Invaders
             }
         }
 
-        Timer timer = new Timer();
-        bool isShotting;
+        protected Timer timer = new Timer();
+        protected int coolDown;
 
         public Gun()
         {
             timer.Start();
+            timer.Interval = 10;
+            timer.Tick += new EventHandler(this.timer_Tick);
+            coolDown = shottingInterval;
         }
 
-        public Bullet shot()
+        protected void timer_Tick(object sender, EventArgs e)
         {
-            
-
-            Bullet bullets = new NormalBullet(positionX, positionY);
-            //TODO:生成新子弹
-            return bullets;
+            coolDown -= 10;
+            if (coolDown < 10)
+            {
+                coolDown += 10;
+            }
         }
+
+        abstract public Bullet shot();
     }
 
-    class railGun : Gun
-    {
-        public railGun()
-        {
-            this.shottingInterval = 100;
-        }
-    }
+    //class railGun : Gun
+    //{
+    //    public railGun()
+    //    {
+    //        this.shottingInterval = 100;
+    //    }
+    //}
 
     class normalGun : Gun
     {
@@ -81,6 +86,20 @@ namespace Invaders
             this.positionX = positionX;
             this.positionY = positionY;
             this.shottingInterval = 300;
+        }
+
+        override public Bullet shot()
+        {
+            if (coolDown >= 0)
+            {
+                return null;
+            }
+            else
+            {
+                coolDown = shottingInterval;
+                Bullet bullet = new NormalBullet(positionX, positionY);
+                return bullet;
+            }
         }
     }
 }

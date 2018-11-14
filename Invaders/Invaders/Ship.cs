@@ -208,9 +208,14 @@ namespace Invaders
         public override List<Bullet> shot()
         {
             List<Bullet> bullets = new List<Bullet>();
+            Bullet temp;
             foreach(Gun g in guns)
             {
-                bullets.Add(g.shot());
+                temp = g.shot();
+                if (temp != null)
+                {
+                    bullets.Add(g.shot());
+                }
             }
             return bullets;
         }
