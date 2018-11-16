@@ -51,6 +51,9 @@ namespace Invaders
         protected Timer timer = new Timer();
         protected int coolDown;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Gun()
         {
             timer.Start();
@@ -62,10 +65,6 @@ namespace Invaders
         protected void timer_Tick(object sender, EventArgs e)
         {
             coolDown -= 10;
-            if (coolDown < 10)
-            {
-                coolDown += 10;
-            }
         }
 
         abstract public Bullet shot();
@@ -85,21 +84,18 @@ namespace Invaders
         {
             this.positionX = positionX;
             this.positionY = positionY;
-            this.shottingInterval = 300;
+            this.shottingInterval = 200;
         }
 
         override public Bullet shot()
         {
-            if (coolDown >= 0)
+           if(coolDown <= 0) 
             {
-                return null;
-            }
-            else
-            {
-                coolDown = shottingInterval;
                 Bullet bullet = new NormalBullet(positionX, positionY);
+                coolDown = shottingInterval;
                 return bullet;
             }
+            return null;
         }
     }
 }

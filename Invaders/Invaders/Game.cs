@@ -94,7 +94,9 @@ namespace Invaders
         /// <returns></returns>
         public void shot()
         {
+            if (playerShip.shot() != null) {
             bullets.AddRange(playerShip.shot());
+            }
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace Invaders
         {
             foreach (Bullet i in bullets)
             {
-               i.draw(graphics);
+                i.draw(graphics);
             }
         }
     } 

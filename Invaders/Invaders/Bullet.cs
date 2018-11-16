@@ -13,7 +13,7 @@ namespace Invaders
     /// <remarks>
     /// created on 10.17 14：00 by Shawn
     /// </remarks>
-    abstract public class Bullet : IDraw
+    abstract public class Bullet : IDraw, IMove
     {
         /// <summary>
         /// 子弹飞行速度
@@ -46,7 +46,7 @@ namespace Invaders
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public bool move(Direction direction)
+        public void move(Direction direction)
         {
             if (direction == Direction.up)
             {
@@ -57,9 +57,8 @@ namespace Invaders
                 positionY += speed;
             }
 
-            if (positionY >= 0 && positionY <= Options.formHeight)
-                return true;
-            else return false;
+            if (positionY < 0 && positionY > Options.formHeight)
+                ;
         }
 
         /// <summary>
@@ -70,6 +69,7 @@ namespace Invaders
         {
             graphics.DrawImage(Image.FromFile(FilePath.ART_NORMAL_BULLET), positionX, positionY, 9, 16);
         }
+
     }
 
     class NormalBullet : Bullet{

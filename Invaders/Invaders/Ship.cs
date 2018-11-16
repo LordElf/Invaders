@@ -176,9 +176,8 @@ namespace Invaders
 
     }
 
-    public interface IMove
-    {
-    }
+    
+
 
     /// <summary>
     /// 玩家的舰船
