@@ -171,6 +171,8 @@ namespace Invaders
     {
         public const string ART_NORMAL_BULLET = 
             @"D:\Projects\Visual Studio项目\Invaders\Art\normalBullet.png";
+        public const string ART_PLAYER_SHIP =
+            @"D:\Projects\Visual Studio项目\Invaders\Art\playerShip.png";
     }
 
 

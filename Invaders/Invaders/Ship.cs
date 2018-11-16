@@ -29,8 +29,9 @@ namespace Invaders
     /// <summary>
     /// 舰船类
     /// </summary>
-    abstract public class Ship : IMove
+    abstract public class Ship
     {
+        public bool isDead = false;
 
         /// <summary>
         /// 舰船的生命值
@@ -176,8 +177,11 @@ namespace Invaders
 
     }
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 3fa28764a5aee22609e39d41610f0edff79ae767
 
     /// <summary>
     /// 玩家的舰船
@@ -222,6 +226,60 @@ namespace Invaders
             }
             return bullets;
         }
+    }
+
+    public class EnemyShip : Ship
+    {
+        public override List<Bullet> shot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EnemyShip()
+        {
+            positionY = -20;
+            positionX = new Random().Next(0, Options.gameRightBorder);
+            //此行代码可能存在导致同一时间内生成的敌船在同一位置
+            speed = 16;
+            width = 18;
+            heigh = 32;
+        }
+
+        bool leftTurn = true;//当该值为真时，飞船向左飞行，否则向右
+        public void go()
+        {
+            this.move(Direction.down);
+            if (leftTurn)
+            {
+                move(Direction.left);
+            }
+            else
+            {
+                move(Direction.right);
+            }
+
+            if (positionX <= 0 + leftBorderMagicNum)
+            {
+                leftTurn = false;
+            }
+            if (positionX >= Options.gameRightBorder)
+            {
+                leftTurn = true;
+            }
+
+            if (positionY >= Options.gameDownBorder - 100)
+            {
+                isDead = true;
+            }
+        }
+
+
+        public void draw(Graphics graphics)
+        {
+           graphics.DrawImage(Image.FromFile(FilePath.ART_PLAYER_SHIP), positionX, positionY, width, heigh);
+        }
+
+        
     }
 
 }

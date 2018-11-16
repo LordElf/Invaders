@@ -57,8 +57,11 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="IDraw.cs" />
+<<<<<<< HEAD
     <Compile Include="IGo.cs" />
     <Compile Include="IMove.cs" />
+=======
+>>>>>>> 3fa28764a5aee22609e39d41610f0edff79ae767
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
