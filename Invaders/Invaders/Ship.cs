@@ -253,16 +253,16 @@ namespace Invaders
                 move(Direction.right);
             }
 
-            if (positionX < 0 + leftBorderMagicNum)
+            if (positionX <= 0 + leftBorderMagicNum)
             {
                 leftTurn = false;
             }
-            if (positionX > rightBorderMagicNum)
+            if (positionX >= Options.gameRightBorder)
             {
                 leftTurn = true;
             }
 
-            if (positionY > downBorderMagicNum)
+            if (positionY >= Options.gameDownBorder - 100)
             {
                 isDead = true;
             }
