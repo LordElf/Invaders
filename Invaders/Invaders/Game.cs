@@ -118,12 +118,12 @@ namespace Invaders
         List<EnemyShip> enemyShips = new List<EnemyShip>();
         public void go()
         {
+            enemyShips.RemoveAll(i => i.isDead == true);
             newEnemyCD--;
             if (newEnemyCD <= 0)
             {
                 newEnemyCD = NEW_ENEMY_CD;
                 enemyShips.Add(new EnemyShip());
-
             }
 
             foreach (EnemyShip i in enemyShips)

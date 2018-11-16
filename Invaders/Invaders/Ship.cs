@@ -31,6 +31,7 @@ namespace Invaders
     /// </summary>
     abstract public class Ship
     {
+        public bool isDead = false;
 
         /// <summary>
         /// 舰船的生命值
@@ -234,7 +235,9 @@ namespace Invaders
             positionY = -20;
             positionX = new Random().Next(0, Options.gameRightBorder);
             //此行代码可能存在导致同一时间内生成的敌船在同一位置
-            speed = 10;
+            speed = 16;
+            width = 18;
+            heigh = 32;
         }
 
         bool leftTurn = true;//当该值为真时，飞船向左飞行，否则向右
@@ -259,11 +262,16 @@ namespace Invaders
                 leftTurn = true;
             }
 
+            if (positionY > downBorderMagicNum)
+            {
+                isDead = true;
+            }
         }
+
 
         public void draw(Graphics graphics)
         {
-            graphics.DrawImage(Image.FromFile(FilePath.ART_PLAYER_SHIP), positionX, positionY);
+           graphics.DrawImage(Image.FromFile(FilePath.ART_PLAYER_SHIP), positionX, positionY, width, heigh);
         }
 
         
