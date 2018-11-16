@@ -8,5 +8,6 @@ namespace Invaders
 {
     interface IGo
     {
+        void Go();
     }
 }

@@ -29,7 +29,7 @@ namespace Invaders
     /// <summary>
     /// 舰船类
     /// </summary>
-    abstract public class Ship
+    abstract public class Ship : IMove
     {
 
         /// <summary>
@@ -174,6 +174,10 @@ namespace Invaders
         /// <returns>由所有shot()方法返回的新的Bullet的引用</returns>
         abstract public List<Bullet> shot();
 
+    }
+
+    public interface IMove
+    {
     }
 
     /// <summary>
