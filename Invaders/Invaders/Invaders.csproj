@@ -56,7 +56,6 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="IDraw.cs" />
-    <Compile Include="j.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

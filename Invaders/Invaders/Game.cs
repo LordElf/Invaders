@@ -106,6 +106,31 @@ namespace Invaders
             {
                i.draw(graphics);
             }
+            foreach (EnemyShip i in enemyShips)
+            {
+                i.draw(graphics);
+            }
+        }
+
+        private const int NEW_ENEMY_CD = 100; //帧
+        private int newEnemyCD = NEW_ENEMY_CD;
+
+        List<EnemyShip> enemyShips = new List<EnemyShip>();
+        public void go()
+        {
+            newEnemyCD--;
+            if (newEnemyCD <= 0)
+            {
+                newEnemyCD = NEW_ENEMY_CD;
+                enemyShips.Add(new EnemyShip());
+
+            }
+
+            foreach (EnemyShip i in enemyShips)
+            {
+                i.go();
+            }
+
         }
     } 
 }

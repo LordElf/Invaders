@@ -124,6 +124,7 @@ namespace Invaders
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            game.go();
             if (this.status == Status.playing)
             {
                 foreach (Keys i in keysPressed)
@@ -160,10 +161,9 @@ namespace Invaders
             this.currentScore.Text = game.currentScore.ToString();
             this.playerLife.Text = "X" + game.getPlayerLife().ToString();
 
-
             this.Refresh();
 
-
+            
         }
 
         static List<Keys> keysPressed = new List<Keys>();

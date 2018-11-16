@@ -29,7 +29,7 @@ namespace Invaders
     /// <summary>
     /// 舰船类
     /// </summary>
-    abstract public class Ship : IMove
+    abstract public class Ship
     {
 
         /// <summary>
@@ -176,9 +176,6 @@ namespace Invaders
 
     }
 
-    public interface IMove
-    {
-    }
 
     /// <summary>
     /// 玩家的舰船
@@ -223,6 +220,53 @@ namespace Invaders
             }
             return bullets;
         }
+    }
+
+    public class EnemyShip : Ship
+    {
+        public override List<Bullet> shot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EnemyShip()
+        {
+            positionY = -20;
+            positionX = new Random().Next(0, Options.gameRightBorder);
+            //此行代码可能存在导致同一时间内生成的敌船在同一位置
+            speed = 10;
+        }
+
+        bool leftTurn = true;//当该值为真时，飞船向左飞行，否则向右
+        public void go()
+        {
+            this.move(Direction.down);
+            if (leftTurn)
+            {
+                move(Direction.left);
+            }
+            else
+            {
+                move(Direction.right);
+            }
+
+            if (positionX < 0 + leftBorderMagicNum)
+            {
+                leftTurn = false;
+            }
+            if (positionX > rightBorderMagicNum)
+            {
+                leftTurn = true;
+            }
+
+        }
+
+        public void draw(Graphics graphics)
+        {
+            graphics.DrawImage(Image.FromFile(FilePath.ART_PLAYER_SHIP), positionX, positionY);
+        }
+
+        
     }
 
 }
